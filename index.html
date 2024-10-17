@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Mon CV - Développeur Web</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Lien vers la feuille de style CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Importation des polices Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Lien vers Font Awesome pour les icônes -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <h1 class="animate__animated animate__backInDown">Mathieu Argibay</h1>
+        <h2>Développeur Web Full Stack</h2>
+    </header>
+
+    <!-- Menu de navigation amélioré -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Mathieu Argibay</div>
+            <div class="nav-toggle">
+                <div class="bar"></div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#about">À Propos</a></li>
+                <li><a href="#skills">Compétences</a></li>
+                <li><a href="#projects">Projets</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section id="about">
+            <h3>À Propos</h3>
+            <p>Passionné par les interfaces innovantes, je conçois des expériences visuelles uniques, combinant esthétisme et fluidité.</p>
+            <p>Détail et adaptabilité sont au cœur de mes créations, toujours pensées pour être à la fois fonctionnelles et captivantes.</p>
+        </section>
+
+        <section id="skills">
+            <h3>Compétences</h3>
+            <div class="skills-grid">
+                <!-- Carte de compétence HTML5 -->
+                <article class="skill-card">
+                    <div class="skill-front">
+                        <i class="fab fa-html5 skill-icon"></i>
+                        <h4>HTML5</h4>
+                    </div>
+                    <div class="skill-back">
+                        <p>Expérience avancée en création de structures web sémantiques et optimisées.</p>
+                    </div>
+                </article>
+                <!-- Carte de compétence CSS3 -->
+                <article class="skill-card">
+                    <div class="skill-front">
+                        <i class="fab fa-css3-alt skill-icon"></i>
+                        <h4>CSS3</h4>
+                    </div>
+                    <div class="skill-back">
+                        <p>Maîtrise des animations, flexbox, grid et design responsive.</p>
+                    </div>
+                </article>
+                <!-- Carte de compétence JavaScript -->
+                <article class="skill-card">
+                    <div class="skill-front">
+                        <i class="fab fa-js-square skill-icon"></i>
+                        <h4>JavaScript</h4>
+                    </div>
+                    <div class="skill-back">
+                        <p>Développement d'applications interactives et dynamiques.</p>
+                    </div>
+                </article>
+                <!-- Compétence PHP -->
+                <article class="skill-card">
+                    <div class="skill-front">
+                        <i class="fab fa-php skill-icon"></i>
+                        <h4>PHP</h4>
+                    </div>
+                    <div class="skill-back">
+                        <p>Expérience en développement back-end avec PHP pour des applications web robustes.</p>
+                    </div>
+                </article>
+                <!-- Compétence Symfony -->
+                <article class="skill-card">
+                    <div class="skill-front">
+                        <i class="fa-brands fa-symfony skill-icon"></i>
+                        <h4>Symfony</h4>
+                    </div>
+                    <div class="skill-back">
+                        <p>Maîtrise du framework Symfony pour construire des applications web modulaires et évolutives.</p>
+                    </div>
+                </article>
+                <!-- Compétence SQL -->
+                <article class="skill-card">
+                    <div class="skill-front">
+                        <i class="fas fa-database skill-icon"></i>
+                        <h4>SQL</h4>
+                    </div>
+                    <div class="skill-back">
+                        <p>Compétences solides en gestion et manipulation de bases de données relationnelles.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h3>Projets</h3>
+            <div class="projects-grid">
+                <!-- Exemple de carte de projet -->
+                <article class="project-card">
+                    <img src="img/fleurs.png" alt="Projet 1">
+                    <h4>Les Pétales Enchantés</h4>
+                    <p>Design d'une boutique en ligne avec une interface utilisateur innovante. (En cours de développement.)</p>
+                    <button class="btn btn-view" data-modal="modal1">Voir le projet</button>
+                </article>
+                <article class="project-card">
+                    <img src="img/GESTION.png" alt="Projet 1">
+                    <h4>Application web de gestion commerciale</h4>
+                    <p>Une application web avec des fonctionnalités de base de données(en cours de développement.)</p>
+                    <button class="btn btn-view" data-modal="modal2">Voir le projet</button>
+                </article>
+                <!-- Ajoutez d'autres cartes de projets de la même manière -->
+            </div>
+        </section>
+<!-- Modales pour les projets -->
+<!-- Modale du Projet 1 -->
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <span class="modal-close">&times;</span>
+        <img src="img/petalesenchantes.gif" alt="Les Pétales Enchantés Agrandi">
+        <div class="modal-caption">Les Pétales Enchantés</div>
+    </div>
+</div>
+<!-- Modale du Projet 2 -->
+<div id="modal2" class="modal">
+    <div class="modal-content">
+        <span class="modal-close">&times;</span>
+        <img src="img/GestionnaireCommerciale.gif" alt="Application web de gestion commerciale Agrandi">
+        <div class="modal-caption">Application web de gestion commerciale</div>
+    </div>
+</div>
+
+    </main>
+<!-- Footer -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>Contactez-moi</h3>
+            <p><i class="fas fa-envelope"></i> argibay.mathieu@gmail.com</p>
+            <p><i class="fas fa-phone"></i> 06.43.03.19.62</p>
+            <p><i class="fas fa-map-marker-alt"></i> Saint-Claud 16450, France</p>
+        </div>
+        <div class="footer-section">
+            <h3>Suivez-moi</h3>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/mathieu-argibay7895123/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Devdokidoc" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="mon_cv.pdf" target="_blank" title="Télécharger mon CV"><i class="fas fa-file-alt"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2023 Mathieu Argibay. Tous droits réservés.</p>
+    </div>
+</footer>
+
+
+    <!-- Bouton "Retour en haut" -->
+    <button id="back-to-top"><i class="fas fa-arrow-up"></i></button>
+    <!-- Lien vers le fichier JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

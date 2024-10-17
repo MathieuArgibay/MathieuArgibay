@@ -1,0 +1,629 @@
+/* Styles généraux */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #6A82FB, #FC5C7D);
+    color: #fff;
+    scroll-behavior: smooth;
+}
+html{
+    scroll-behavior: smooth;
+
+}
+
+header {
+    text-align: center;
+    padding: 60px 0;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+    font-size: 3em;
+    font-weight: 600;
+    margin: 0;
+}
+
+header h2 {
+    font-size: 1.5em;
+    font-weight: 300;
+    margin-top: 10px;
+}
+
+/* Navigation améliorée */
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1000px;
+
+}
+
+.nav-container .logo {
+    font-size: 1.5em;
+    font-weight: 600;
+    display: none; /* Cacher le logo par défaut */
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+}
+
+.nav-menu li {
+    margin: 0 20px;
+    padding: 20px;
+}
+
+.nav-menu li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.25em;
+    transition: color 0.3s;
+}
+
+.nav-menu li a:hover {
+    color: #FFD700;
+}
+
+/* Menu burger stylisé */
+.nav-toggle {
+    display: none;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    position: relative;
+}
+
+/* ... styles du bouton burger ... */
+
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+        position: fixed;
+        top: 15px;
+        right: 20px;
+        z-index: 1001; /* Au-dessus du menu */
+    }
+
+    .nav-container .logo {
+        display: block; /* Afficher le logo sur les petits écrans */
+        position: fixed;
+        top: 15px;
+        left: 20px;
+        z-index: 1001; /* Au-dessus du menu */
+        opacity: 0; /* Cacher le logo initialement */
+        transition: opacity 0.3s ease;
+    }
+
+    .nav-container .logo.visible {
+        opacity: 1; /* Afficher le logo lorsqu'il a la classe 'visible' */
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 250px;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: right 0.3s ease-in-out;
+        z-index: 1000; /* En dessous du bouton */
+    }
+
+    .nav-menu.open {
+        right: 0;
+    }
+
+    .nav-menu li {
+        margin: 20px 0;
+    }
+}
+
+/* Apparition du logo lors du scroll */
+.logo.visible {
+    opacity: 1;
+}
+
+.nav-menu li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-menu li a:hover {
+    color: #FFD700;
+}
+
+/* Menu burger stylisé */
+.nav-toggle {
+    display: none;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    position: relative;
+}
+
+.nav-toggle .bar,
+.nav-toggle .bar::before,
+.nav-toggle .bar::after {
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    transition: all 0.3s ease;
+}
+
+.nav-toggle .bar {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.nav-toggle .bar::before {
+    content: '';
+    top: -10px;
+}
+
+.nav-toggle .bar::after {
+    content: '';
+    top: 10px;
+}
+
+.nav-toggle.open .bar {
+    background-color: transparent;
+}
+
+.nav-toggle.open .bar::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.nav-toggle.open .bar::after {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+        position: fixed;
+        top: 15px;
+        right: 20px;
+        z-index: 1001; /* Au-dessus du menu */
+    }
+
+    .nav-container .logo {
+        position: fixed;
+        top: 15px;
+        left: 20px;
+        z-index: 1001; /* Au-dessus du menu */
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 250px;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: right 0.3s ease-in-out;
+        z-index: 1000; /* En dessous du bouton */
+    }
+
+    .nav-menu.open {
+        right: 0;
+    }
+
+    .nav-menu li {
+        margin: 20px 0;
+    }
+}
+
+    /* Empêche le défilement du contenu lorsque le menu est ouvert */
+    body.menu-open {
+        overflow: hidden;
+    }
+
+main {
+    max-width: 1000px;
+    margin: auto;
+}
+
+section {
+    padding: 60px 20px;
+}
+
+h3 {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+h3::after {
+    content: '';
+    width: 60px;
+    height: 4px;
+    background-color: #FFD700;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+}
+
+#about p {
+    font-size: 1.2em;
+    text-align: center;
+    line-height: 1.6em;
+}
+
+/* Styles pour les cartes de compétences */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.skill-card {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.skill-front, .skill-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.6s;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.skill-front {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.skill-back {
+    background-color: rgba(0, 0, 0, 0.5);
+    transform: rotateY(180deg);
+}
+
+.skill-card:hover .skill-front {
+    transform: rotateY(180deg);
+}
+
+.skill-card:hover .skill-back {
+    transform: rotateY(360deg);
+}
+
+.skill-icon {
+    font-size: 5em;
+    color: #FFD700;
+}
+
+.skill-icon img {
+    width: 60px;
+    height: 60px;
+}
+
+.skill-front h4 {
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+.skill-back p {
+    font-size: 1em;
+    line-height: 1.5em;
+    text-align: center;
+}
+
+/* Styles pour les cartes de projets */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 100px;
+}
+
+.project-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    text-align: center;
+    color: #fff;
+
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+}
+
+.project-card img {
+    width: 100%;
+    height: auto;
+}
+
+.project-card h4 {
+    margin: 15px 0;
+}
+
+.project-card p {
+    margin: 0 15px 15px 15px;
+    font-size: 0.9em;
+    line-height: 1.5em;
+}
+
+.project-card .btn {
+    display: inline-block;
+    margin-bottom: 15px;
+    padding: 10px 20px;
+    background-color: #FFD700;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.project-card .btn:hover {
+    background-color: #fff;
+    color: #FFD700;
+}
+
+/* Effets d'apparition des sections */
+.invisible {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Styles pour la modale */
+/* Styles pour la modale */
+.modal {
+    display: none; /* Cachée par défaut */
+    position: fixed;
+    z-index: 1000; /* Au-dessus des autres éléments */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Fond semi-transparent */
+    /* padding: 20px; Pour éviter que le contenu ne touche les bords */
+    overflow: hidden; /* Empêche le défilement de l'arrière-plan */
+    /* Retirer le display: flex; ici */
+}
+
+/* Nouvelle classe pour afficher la modale */
+.modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    margin: auto;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: transparent;
+    animation: zoom 0.3s ease-out;
+}
+
+.modal-content img {
+    width: 100%;
+    max-height: 500px;
+    min-height: 250px;
+    /* height: auto; */
+    display: block;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1001;
+    transition: color 0.3s;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+    color: #bbb;
+}
+
+.modal-caption {
+    text-align: center;
+    color: #fff;
+    padding: 10px 0;
+}
+
+/* Animation d'apparition */
+@keyframes zoom {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Ajustements pour les petits écrans */
+@media (max-width: 768px) {
+    .modal-content {
+        max-width: 95%;
+        max-height: 95%;
+        /* margin: 25%; */
+    }
+
+    .modal-close {
+        font-size: 25px;
+        top: 5px;
+        right: 10px;
+    }
+}
+/* Styles pour le bouton "Voir le projet" */
+.btn-view {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #FFD700;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-view:hover {
+    background-color: #fff;
+    color: #FFD700;
+}
+
+/* Bouton "Retour en haut" */
+#back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #FFD700;
+    color: #fff;
+    border: none;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    z-index: 1000;
+}
+
+#back-to-top i {
+    font-size: 1.2em;
+}
+
+#back-to-top:hover {
+    background-color: #fff;
+    color: #FFD700;
+}
+
+/* Responsivité pour les cartes de compétences */
+@media (max-width: 1024px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+/* Styles pour le footer */
+footer {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 40px 20px;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1000px;
+    margin: auto;
+    text-align: center;
+}
+
+.footer-section {
+    flex: 1 1 300px;
+    margin: 20px;
+}
+
+.footer-section h3 {
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.footer-section p {
+    margin: 10px 0;
+    font-size: 1em;
+    padding: 8px;
+}
+
+.footer-section p i {
+    margin-right: 10px;
+
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.social-icons a {
+    color: #fff;
+    margin: 0 10px;
+    padding: 30px 8px;
+    font-size: 1.5em;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #FFD700;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #444;
+    margin-top: 20px;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #ccc;
+}
+
+/* Responsivité du footer */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .footer-section {
+        margin: 10px 0;
+        flex: 1 1 200px;
+    }
+}
