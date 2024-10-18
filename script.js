@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
     navToggle.addEventListener('click', () => {
         navToggle.classList.toggle('open');
         navMenu.classList.toggle('open');
+        document.body.classList.toggle('menu-open');
     });
 
     navLinks.forEach(link => {
@@ -50,28 +51,25 @@ document.addEventListener('DOMContentLoaded', function() {
             if(navMenu.classList.contains('open')){
                 navMenu.classList.remove('open');
                 navToggle.classList.remove('open');
+                document.body.classList.remove('menu-open');
             }
         });
     });
 
-    // Apparition du logo lors du scroll sur petits écrans
+    // Apparition du logo lors du scroll sur tous les écrans
     const logo = document.querySelector('.logo');
 
     function handleScroll() {
-        if(window.innerWidth <= 768) { // Vérifie si l'écran est petit
-            if(window.scrollY > 50){
-                logo.classList.add('visible');
-            } else {
-                logo.classList.remove('visible');
-            }
+        if(window.scrollY > 50){
+            logo.classList.add('visible');
         } else {
             logo.classList.remove('visible');
         }
     }
 
     window.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', handleScroll); // Met à jour lors du redimensionnement
     handleScroll(); // Initialisation
+
     // Gestion des modales pour les projets
     const modalButtons = document.querySelectorAll('.btn-view');
     const modals = document.querySelectorAll('.modal');
@@ -110,3 +108,29 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+// Initialisation d'EmailJS
+(function() {
+    emailjs.init("csaavtxg0Jb0SDrtw"); // Remplace TON_USER_ID_EMAILJS par ton vrai user ID EmailJS
+})();
+
+// Formulaire de contact
+const form = document.getElementById("contact-form");
+const formMessage = document.getElementById("form-message");
+
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    
+    emailjs.sendForm('service_1cjyzga', 'template_cgjz1bk', this)
+        .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+            formMessage.textContent = "Votre message a été envoyé avec succès!";
+            formMessage.style.color = "green";
+        }, function(error) {
+            console.log('FAILED...', error);
+            formMessage.textContent = "Erreur lors de l'envoi du message. Veuillez réessayer.";
+            formMessage.style.color = "red";
+        });
+
+    form.reset();
+});
+

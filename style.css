@@ -7,19 +7,23 @@ body {
     color: #fff;
     scroll-behavior: smooth;
 }
-html{
-    scroll-behavior: smooth;
 
+html {
+    scroll-behavior: smooth;
 }
 
 header {
     text-align: center;
-    padding: 60px 0;
+    padding-bottom: 60px;
     background-color: rgba(0, 0, 0, 0.3);
 }
 
+.logo-main img {
+    height: 25vh;
+}
+
 header h1 {
-    font-size: 3em;
+    font-size: 2.5em;
     font-weight: 600;
     margin: 0;
 }
@@ -30,37 +34,65 @@ header h2 {
     margin-top: 10px;
 }
 
+/* Logo caché par défaut et positionné en haut à gauche */
+.logo {
+    position: fixed;
+    top: 10px;
+    left: 20px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 1001;
+}
+
+.logo.visible {
+    opacity: 1;
+}
+
+.logo img {
+    height: 80px; /* Taille réduite du logo */
+}
+
 /* Navigation améliorée */
 .nav-container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    max-width: 1000px;
-
+    justify-content: center;
+    max-width: 100%;
+    flex-wrap: wrap;
+    padding: 10px 20px;
 }
 
-.nav-container .logo {
-    font-size: 1.5em;
-    font-weight: 600;
-    display: none; /* Cacher le logo par défaut */
+.nav-toggle {
+    display: none;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    position: relative;
 }
 
 .nav-menu {
     list-style: none;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
     margin: 0;
+    padding: 0;
+    width: 100%;
 }
 
 .nav-menu li {
-    margin: 0 20px;
-    padding: 20px;
+    flex: 1;
+    text-align: center;
 }
 
 .nav-menu li a {
+    display: block;
+    padding: 15px 0;
     text-decoration: none;
     color: #fff;
     font-weight: 600;
-    font-size: 1.25em;
+    font-size: 1.1em;
     transition: color 0.3s;
 }
 
@@ -69,87 +101,6 @@ header h2 {
 }
 
 /* Menu burger stylisé */
-.nav-toggle {
-    display: none;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-    position: relative;
-}
-
-/* ... styles du bouton burger ... */
-
-@media (max-width: 768px) {
-    .nav-toggle {
-        display: block;
-        position: fixed;
-        top: 15px;
-        right: 20px;
-        z-index: 1001; /* Au-dessus du menu */
-    }
-
-    .nav-container .logo {
-        display: block; /* Afficher le logo sur les petits écrans */
-        position: fixed;
-        top: 15px;
-        left: 20px;
-        z-index: 1001; /* Au-dessus du menu */
-        opacity: 0; /* Cacher le logo initialement */
-        transition: opacity 0.3s ease;
-    }
-
-    .nav-container .logo.visible {
-        opacity: 1; /* Afficher le logo lorsqu'il a la classe 'visible' */
-    }
-
-    .nav-menu {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 250px;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.9);
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        transition: right 0.3s ease-in-out;
-        z-index: 1000; /* En dessous du bouton */
-    }
-
-    .nav-menu.open {
-        right: 0;
-    }
-
-    .nav-menu li {
-        margin: 20px 0;
-    }
-}
-
-/* Apparition du logo lors du scroll */
-.logo.visible {
-    opacity: 1;
-}
-
-.nav-menu li a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: 600;
-    transition: color 0.3s;
-}
-
-.nav-menu li a:hover {
-    color: #FFD700;
-}
-
-/* Menu burger stylisé */
-.nav-toggle {
-    display: none;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-    position: relative;
-}
-
 .nav-toggle .bar,
 .nav-toggle .bar::before,
 .nav-toggle .bar::after {
@@ -190,21 +141,14 @@ header h2 {
     top: 0;
 }
 
-
+/* Media Queries pour la responsivité */
 @media (max-width: 768px) {
     .nav-toggle {
         display: block;
         position: fixed;
         top: 15px;
         right: 20px;
-        z-index: 1001; /* Au-dessus du menu */
-    }
-
-    .nav-container .logo {
-        position: fixed;
-        top: 15px;
-        left: 20px;
-        z-index: 1001; /* Au-dessus du menu */
+        z-index: 1001;
     }
 
     .nav-menu {
@@ -218,7 +162,7 @@ header h2 {
         align-items: center;
         justify-content: center;
         transition: right 0.3s ease-in-out;
-        z-index: 1000; /* En dessous du bouton */
+        z-index: 1000;
     }
 
     .nav-menu.open {
@@ -227,13 +171,14 @@ header h2 {
 
     .nav-menu li {
         margin: 20px 0;
+        width: 100%;
     }
 }
 
-    /* Empêche le défilement du contenu lorsque le menu est ouvert */
-    body.menu-open {
-        overflow: hidden;
-    }
+/* Empêche le défilement du contenu lorsque le menu est ouvert */
+body.menu-open {
+    overflow: hidden;
+}
 
 main {
     max-width: 1000px;
@@ -262,10 +207,33 @@ h3::after {
     bottom: -10px;
 }
 
+#about {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
 #about p {
     font-size: 1.2em;
-    text-align: center;
     line-height: 1.6em;
+}
+
+.btn-cv {
+    text-decoration: none;
+    padding: 10px;
+    margin: 20px 10px;
+    font-weight: 600;
+    background: #FFD700;
+    width: 200px;
+    border-radius: 5px;
+    color: rgba(0, 0, 0, 0.8);
+    display: inline-block;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-cv:hover {
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.475);
+    background: white;
 }
 
 /* Styles pour les cartes de compétences */
@@ -336,6 +304,24 @@ h3::after {
     text-align: center;
 }
 
+/* Responsivité pour les cartes de compétences */
+@media (max-width: 1024px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .skill-card {
+        margin-bottom: 20px;
+    }
+}
+
 /* Styles pour les cartes de projets */
 .projects-grid {
     display: grid;
@@ -350,7 +336,6 @@ h3::after {
     transition: transform 0.3s;
     text-align: center;
     color: #fff;
-
 }
 
 .project-card:hover {
@@ -388,35 +373,100 @@ h3::after {
     color: #FFD700;
 }
 
-/* Effets d'apparition des sections */
-.invisible {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+/* Adaptation de la grille des projets pour petits écrans */
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 40px;
+    }
+
+    .project-card {
+        padding: 20px;
+    }
 }
 
-.visible {
-    opacity: 1;
-    transform: translateY(0);
+/* Formulaire de contact */
+.contact {
+    background-color: #b39ddb; /* Violet Clair */
+    padding: 80px 0;
 }
 
-/* Styles pour la modale */
+.contact h2 {
+    padding-bottom: 60px;
+    color: #fff;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+input, textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    resize: none;
+}
+
+input:focus, textarea:focus {
+    border-color: #3e1f5c; /* Bordure Violet Foncé au focus */
+    outline: none;
+}
+
+button {
+    background-color:rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre portée */
+}
+
+button:hover {
+    background-color: #f5a623; /* Or */
+    transform: scale(1.05); /* Augmentation de la taille au hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Ombre portée plus intense */
+}
+
+#form-message {
+    margin-top: 20px;
+    font-size: 1.1rem;
+}
+
+/* Ajustements pour le texte blanc dans le titre */
+.contact h2 {
+    color: #fff;
+    text-align: center;
+}
+
+
 /* Styles pour la modale */
 .modal {
-    display: none; /* Cachée par défaut */
+    display: none;
     position: fixed;
-    z-index: 1000; /* Au-dessus des autres éléments */
+    z-index: 1000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9); /* Fond semi-transparent */
-    /* padding: 20px; Pour éviter que le contenu ne touche les bords */
-    overflow: hidden; /* Empêche le défilement de l'arrière-plan */
-    /* Retirer le display: flex; ici */
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow: hidden;
 }
 
-/* Nouvelle classe pour afficher la modale */
 .modal.show {
     display: flex;
     align-items: center;
@@ -438,7 +488,6 @@ h3::after {
     width: 100%;
     max-height: 500px;
     min-height: 250px;
-    /* height: auto; */
     display: block;
 }
 
@@ -482,7 +531,6 @@ h3::after {
     .modal-content {
         max-width: 95%;
         max-height: 95%;
-        /* margin: 25%; */
     }
 
     .modal-close {
@@ -491,6 +539,7 @@ h3::after {
         right: 10px;
     }
 }
+
 /* Styles pour le bouton "Voir le projet" */
 .btn-view {
     display: inline-block;
@@ -534,16 +583,11 @@ h3::after {
     color: #FFD700;
 }
 
-/* Responsivité pour les cartes de compétences */
-@media (max-width: 1024px) {
-    .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
 @media (max-width: 768px) {
-    .skills-grid {
-        grid-template-columns: repeat(1, 1fr);
+    #back-to-top {
+        bottom: 15px;
+        right: 15px;
+        padding: 12px;
     }
 }
 
@@ -582,7 +626,6 @@ footer {
 
 .footer-section p i {
     margin-right: 10px;
-
 }
 
 .social-icons {
@@ -624,6 +667,6 @@ footer {
 
     .footer-section {
         margin: 10px 0;
-        flex: 1 1 200px;
+        flex: 1 1 auto;
     }
 }

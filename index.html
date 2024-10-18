@@ -10,13 +10,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <!-- Lien vers Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!-- Lien vers animate.css pour les animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Script pour Font Awesome -->
+    <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
+    <header id="header">
+        <div class="logo-main"><img src="./img/mayellow.png" alt="Logo principal"></div>
         <h1 class="animate__animated animate__backInDown">Mathieu Argibay</h1>
         <h2>Développeur Web Full Stack</h2>
     </header>
@@ -24,23 +28,26 @@
     <!-- Menu de navigation amélioré -->
     <nav>
         <div class="nav-container">
-            <div class="logo">Mathieu Argibay</div>
+            <div class="logo"><img src="./img/mayellow.png" alt="Logo"></div>
             <div class="nav-toggle">
                 <div class="bar"></div>
             </div>
             <ul class="nav-menu">
+                <li><a href="#header">Accueil</a></li>
                 <li><a href="#about">À Propos</a></li>
                 <li><a href="#skills">Compétences</a></li>
                 <li><a href="#projects">Projets</a></li>
+                <li><a href="#footer">Contact</a></li>
             </ul>
         </div>
     </nav>
-
     <main>
         <section id="about">
             <h3>À Propos</h3>
             <p>Passionné par les interfaces innovantes, je conçois des expériences visuelles uniques, combinant esthétisme et fluidité.</p>
             <p>Détail et adaptabilité sont au cœur de mes créations, toujours pensées pour être à la fois fonctionnelles et captivantes.</p>
+            <a class="btn-cv" href="#contact" title="Contactez-moi">Contactez-moi</a>
+            <a class="btn-cv" href="https://cv-dev-theta.vercel.app/file/Mathieu%20Argibay.pdf" download target="_blank" title="Télécharger mon CV">Télécharger mon CV</a>
         </section>
 
         <section id="skills">
@@ -89,7 +96,7 @@
                 <!-- Compétence Symfony -->
                 <article class="skill-card">
                     <div class="skill-front">
-                        <i class="fa-brands fa-symfony skill-icon"></i>
+                        <i class="fab fa-symfony skill-icon"></i>
                         <h4>Symfony</h4>
                     </div>
                     <div class="skill-back">
@@ -112,64 +119,78 @@
         <section id="projects">
             <h3>Projets</h3>
             <div class="projects-grid">
-                <!-- Exemple de carte de projet -->
+                <!-- Projet 1 -->
                 <article class="project-card">
                     <img src="img/fleurs.png" alt="Projet 1">
                     <h4>Les Pétales Enchantés</h4>
                     <p>Design d'une boutique en ligne avec une interface utilisateur innovante. (En cours de développement.)</p>
                     <button class="btn btn-view" data-modal="modal1">Voir le projet</button>
                 </article>
+                <!-- Projet 2 -->
                 <article class="project-card">
-                    <img src="img/GESTION.png" alt="Projet 1">
+                    <img src="img/GESTION.png" alt="Projet 2">
                     <h4>Application web de gestion commerciale</h4>
-                    <p>Une application web avec des fonctionnalités de base de données(en cours de développement.)</p>
+                    <p>Une application web avec des fonctionnalités de base de données (en cours de développement.)</p>
                     <button class="btn btn-view" data-modal="modal2">Voir le projet</button>
                 </article>
                 <!-- Ajoutez d'autres cartes de projets de la même manière -->
             </div>
         </section>
-<!-- Modales pour les projets -->
-<!-- Modale du Projet 1 -->
-<div id="modal1" class="modal">
-    <div class="modal-content">
-        <span class="modal-close">&times;</span>
-        <img src="img/petalesenchantes.gif" alt="Les Pétales Enchantés Agrandi">
-        <div class="modal-caption">Les Pétales Enchantés</div>
-    </div>
-</div>
-<!-- Modale du Projet 2 -->
-<div id="modal2" class="modal">
-    <div class="modal-content">
-        <span class="modal-close">&times;</span>
-        <img src="img/GestionnaireCommerciale.gif" alt="Application web de gestion commerciale Agrandi">
-        <div class="modal-caption">Application web de gestion commerciale</div>
-    </div>
-</div>
 
-    </main>
-<!-- Footer -->
-<footer>
-    <div class="footer-content">
-        <div class="footer-section">
-            <h3>Contactez-moi</h3>
-            <p><i class="fas fa-envelope"></i> argibay.mathieu@gmail.com</p>
-            <p><i class="fas fa-phone"></i> 06.43.03.19.62</p>
-            <p><i class="fas fa-map-marker-alt"></i> Saint-Claud 16450, France</p>
-        </div>
-        <div class="footer-section">
-            <h3>Suivez-moi</h3>
-            <div class="social-icons">
-                <a href="https://www.linkedin.com/in/mathieu-argibay7895123/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/Devdokidoc" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://cv-dev-theta.vercel.app/file/Mathieu Argibay.pdf" download target="_blank" title="Télécharger mon CV"><i class="fas fa-file-alt"></i></a>
+        <!-- Modales pour les projets -->
+        <!-- Modale du Projet 1 -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <span class="modal-close">&times;</span>
+                <img src="img/petalesenchantes.gif" alt="Les Pétales Enchantés Agrandi">
+                <div class="modal-caption">Les Pétales Enchantés</div>
             </div>
         </div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; 2023 Mathieu Argibay. Tous droits réservés.</p>
-    </div>
-</footer>
+        <!-- Modale du Projet 2 -->
+        <div id="modal2" class="modal">
+            <div class="modal-content">
+                <span class="modal-close">&times;</span>
+                <img src="img/GestionnaireCommerciale.gif" alt="Application web de gestion commerciale Agrandi">
+                <div class="modal-caption">Application web de gestion commerciale</div>
+            </div>
+        </div>
+    </main>
 
+    <section id="contact" class="section contact">
+        <h2>Contactez-moi</h2>
+        <form id="contact-form">
+            <input type="text" name="name" placeholder="Votre nom" required>
+            <input type="email" name="email" placeholder="Votre email" required>
+            <textarea name="message" placeholder="Votre message" rows="6" required></textarea>
+            <button type="submit">Envoyer</button>
+        </form>
+        <p id="form-message"></p>
+    </section>
+</main>
+
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contactez-moi</h3>
+                <p><i class="fas fa-envelope"></i> argibay.mathieu@gmail.com</p>
+                <p><i class="fas fa-phone"></i> 06.43.03.19.62</p>
+                <p><i class="fas fa-map-marker-alt"></i> Saint-Claud 16450, France</p>
+            </div>
+            <div class="footer-section">
+                <h3>Suivez-moi</h3>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/mathieu-argibay7895123/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/Devdokidoc" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://cv-dev-theta.vercel.app/file/Mathieu%20Argibay.pdf" download target="_blank" title="Télécharger mon CV"><i class="fas fa-file-alt"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Mathieu Argibay. Tous droits réservés.</p>
+        </div>
+    </footer>
 
     <!-- Bouton "Retour en haut" -->
     <button id="back-to-top"><i class="fas fa-arrow-up"></i></button>
