@@ -52,7 +52,8 @@ header h2 {
     height: 80px; /* Taille réduite du logo */
 }
 
-/* Navigation améliorée */
+                                /* Navigation */
+
 .nav-container {
     display: flex;
     align-items: center;
@@ -100,7 +101,8 @@ header h2 {
     color: #FFD700;
 }
 
-/* Menu burger stylisé */
+        /* ------Menu burger stylisé */
+
 .nav-toggle .bar,
 .nav-toggle .bar::before,
 .nav-toggle .bar::after {
@@ -141,39 +143,7 @@ header h2 {
     top: 0;
 }
 
-/* Media Queries pour la responsivité */
-@media (max-width: 768px) {
-    .nav-toggle {
-        display: block;
-        position: fixed;
-        top: 15px;
-        right: 20px;
-        z-index: 1001;
-    }
 
-    .nav-menu {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 250px;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.9);
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        transition: right 0.3s ease-in-out;
-        z-index: 1000;
-    }
-
-    .nav-menu.open {
-        right: 0;
-    }
-
-    .nav-menu li {
-        margin: 20px 0;
-        width: 100%;
-    }
-}
 
 /* Empêche le défilement du contenu lorsque le menu est ouvert */
 body.menu-open {
@@ -223,6 +193,7 @@ h3::after {
     padding: 15px;
     margin: 20px 10px;
     font-weight: 600;
+
     background: #FFD700;
     width: 200px;
     border-radius: 5px;
@@ -237,7 +208,9 @@ h3::after {
     color: #FFD700;
 }
 
-/* Styles pour les cartes de compétences */
+                    /* Styles pour les cartes de compétences */
+
+
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -305,25 +278,11 @@ h3::after {
     text-align: center;
 }
 
-/* Responsivité pour les cartes de compétences */
-@media (max-width: 1024px) {
-    .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-}
 
-@media (max-width: 768px) {
-    .skills-grid {
-        grid-template-columns: repeat(1, 1fr);
-    }
 
-    .skill-card {
-        margin-bottom: 20px;
-    }
-}
+                                /* Styles pour les cartes de projets */
 
-/* Styles pour les cartes de projets */
+
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -374,20 +333,31 @@ h3::after {
     color: #FFD700;
 }
 
-/* Adaptation de la grille des projets pour petits écrans */
-@media (max-width: 768px) {
-    .projects-grid {
-        grid-template-columns: repeat(1, 1fr);
-        gap: 40px;
-    }
+/* Styles pour le bouton "Voir le projet" */
 
-    .project-card {
-        padding: 20px;
-    }
-    
+.btn-view {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #FFD700;
+    color: rgba(0, 0, 0, 0.8);
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-weight: 600;
+    cursor: pointer;
 }
 
-/* Formulaire de contact */
+.btn-view:hover {
+    background-color:rgba(0, 0, 0, 0.8);
+    color: #FFD700;
+}
+
+
+
+                                /* Formulaire de contact */
+
+
 .contact {
     /* background-color: #b39ddb; Violet Clair */
     margin: 0 10px;
@@ -407,7 +377,6 @@ form {
     margin: 0 auto;
     padding: 20px;
     /* background-color: #ffffff; */
-
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -429,8 +398,9 @@ input:focus, textarea:focus {
 }
 
 button {
-    background-color:rgba(0, 0, 0, 0.8);
-    color: white;
+    background-color:#FFD700;
+    color: rgba(0, 0, 0, 0.6);
+    font-weight: 600;
     padding: 15px 30px;
     border: none;
     border-radius: 50px;
@@ -441,7 +411,8 @@ button {
 }
 
 button:hover {
-    background-color: #f5a623; /* Or */
+    background-color:  rgba(0, 0, 0, 0.6);
+    color: #FFD700;;
     transform: scale(1.05); /* Augmentation de la taille au hover */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Ombre portée plus intense */
 }
@@ -458,7 +429,9 @@ button:hover {
 }
 
 
-/* Styles pour la modale */
+
+
+                                    /* Styles pour la modale */
 .modal {
     display: none;
     position: fixed;
@@ -490,17 +463,16 @@ button:hover {
 
 .modal-content img {
     width: 100%;
-    max-height: 500px;
     min-height: 250px;
     display: block;
 }
 
 .modal-close {
     position: absolute;
-    top: 10px;
-    right: 15px;
-    color: #fff;
-    font-size: 30px;
+    top: 5px;
+    right: 10px;
+    color:#FFD700;
+    font-size: 40px;
     font-weight: bold;
     cursor: pointer;
     z-index: 1001;
@@ -530,40 +502,9 @@ button:hover {
     }
 }
 
-/* Ajustements pour les petits écrans */
-@media (max-width: 768px) {
-    .modal-content {
-        max-width: 95%;
-        max-height: 95%;
-    }
 
-    .modal-close {
-        font-size: 25px;
-        top: 5px;
-        right: 10px;
-    }
-}
 
-/* Styles pour le bouton "Voir le projet" */
-.btn-view {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #FFD700;
-    color: rgba(0, 0, 0, 0.8);
-    text-decoration: none;
-    border: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.btn-view:hover {
-    background-color:rgba(0, 0, 0, 0.8);
-    color: #FFD700;
-}
-
-/* Bouton "Retour en haut" */
+                                    /* Bouton "Retour en haut" */
 #back-to-top {
     position: fixed;
     bottom: 30px;
@@ -587,15 +528,10 @@ button:hover {
     color: #FFD700;
 }
 
-@media (max-width: 768px) {
-    #back-to-top {
-        bottom: 15px;
-        right: 15px;
-        padding: 12px;
-    }
-}
 
-/* Styles pour le footer */
+                                    /* Styles pour le footer */
+
+
 footer {
     background-color: rgba(0, 0, 0, 0.8);
     color: #fff;
@@ -663,8 +599,96 @@ footer {
     color: #ccc;
 }
 
-/* Responsivité du footer */
+
+                    /* --------------------------------MEDIA QUERY ------------ */
+
+
+                    /* -------------------- 1024px -------------    */
+
+
+/* Responsivité pour les cartes de compétences */
+@media (max-width: 1024px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+
+                    /* -----------------------------768 px -------------------- */
+
 @media (max-width: 768px) {
+
+    /* -----Nav ----- */
+    .nav-toggle {
+        display: block;
+        position: fixed;
+        top: 15px;
+        right: 20px;
+        z-index: 1001;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 250px;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: right 0.3s ease-in-out;
+        z-index: 1000;
+    }
+
+    .nav-menu.open {
+        right: 0;
+    }
+
+    .nav-menu li {
+        margin: 20px 0;
+        width: 100%;
+    }
+
+        /* ---------skill------ */
+    
+
+    .skills-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .skill-card {
+        margin-bottom: 20px;
+    }
+
+    /* ----------------Projects--------- */
+
+    .projects-grid {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 40px;
+    }
+
+    .project-card {
+        padding: 20px;
+    }
+
+    /* ----------MODAL--------------- */
+    
+    .modal-content {
+        max-width: 95%;
+        max-height: 75%;
+        
+    }
+
+    .modal-close {
+        font-size: 25px;
+        top: 5px;
+        right: 10px;
+    }
+
+
+    /* --------footer--------- */
     .footer-content {
         flex-direction: column;
     }
@@ -673,4 +697,13 @@ footer {
         margin: 10px 0;
         flex: 1 1 auto;
     }
+
+
+
+    #back-to-top {
+        bottom: 15px;
+        right: 15px;
+        padding: 12px;
+    }
+
 }
