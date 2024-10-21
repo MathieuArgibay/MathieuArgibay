@@ -647,9 +647,11 @@ footer {
     }
 
     .nav-menu li {
-        margin: 20px 0;
+        margin: 35px 0;
         width: 100%;
+        flex: 0;
     }
+
 
         /* ---------skill------ */
     
@@ -706,4 +708,10 @@ footer {
         padding: 12px;
     }
 
+}
+
+@media screen and (max-height:400px){
+    .nav-menu li{
+        margin: 0;
+    }
 }
