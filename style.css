@@ -719,6 +719,15 @@ footer {
 
 }
 
+@media screen and (max-width:400px){
+    .nav-menu li {
+        margin: 15px 0;
+        width: 100%;
+        flex: 0;
+    }
+    
+}
+
 @media screen and (max-height:400px){
     .nav-menu li{
         margin: 0;
