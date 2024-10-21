@@ -229,13 +229,13 @@ h3::after {
     position: absolute;
     width: 100%;
     height: 100%;
-    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    transition: transform 0.6s;
+    -webkit-transition: -webkit-transform 0.6s;
     padding: 20px;
     box-sizing: border-box;
 }
@@ -246,15 +246,15 @@ h3::after {
 
 .skill-back {
     background-color: rgba(0, 0, 0, 0.5);
-    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
 }
 
 .skill-card:hover .skill-front {
-    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
 }
 
 .skill-card:hover .skill-back {
-    transform: rotateY(360deg);
+    -webkit-transform: rotateY(360deg);
 }
 
 .skill-icon {
