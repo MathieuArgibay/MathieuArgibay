@@ -452,14 +452,33 @@ button:hover {
 }
 
 #form-message {
-    margin-top: 20px;
-    font-size: 1.1rem;
+    margin-top: 50px;
+    font-size: 1.4rem;
+    text-align:center;
+    color: #FFD700;
+    font-weight: 600;
+}
+/* Style de confirmation*/
+
+#confirmation{
+    text-align: center;
+}
+#confirmation p{
+    font-size: 1.2em;
+}
+#confirmation h2{
+    font-size: 2em;
+    color: #FFD700;
+}
+#confirmation a{
+    margin-top: 50px;
 }
 
 /* Ajustements pour le texte blanc dans le titre */
 .contact h2 {
     color: #fff;
     text-align: center;
+
 }
 
 /* Styles pour la modale */

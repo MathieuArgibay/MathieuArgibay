@@ -1,10 +1,10 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function() {
     // Animation des sections au défilement
     const sections = document.querySelectorAll('section');
 
     const observer = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
-            if(entry.isIntersecting){
+            if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
             }
         });
@@ -19,14 +19,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Bouton "Retour en haut"
     const backToTopButton = document.getElementById('back-to-top');
-
-    window.addEventListener('scroll', function() {
-        if (window.pageYOffset > 300) {
-            backToTopButton.style.display = "block";
-        } else {
-            backToTopButton.style.display = "none";
-        }
-    });
+    if (backToTopButton) {
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = "block";
+            } else {
+                backToTopButton.style.display = "none";
+            }
+        });
+    }
 
     backToTopButton.addEventListener('click', function() {
         window.scrollTo({
@@ -48,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
-            if(navMenu.classList.contains('open')){
+            if (navMenu.classList.contains('open')) {
                 navMenu.classList.remove('open');
                 navToggle.classList.remove('open');
                 document.body.classList.remove('menu-open');
@@ -56,11 +57,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Apparition du logo lors du scroll sur tous les écrans
+    // Apparition du logo lors du scroll
     const logo = document.querySelector('.logo');
 
     function handleScroll() {
-        if(window.scrollY > 50){
+        if (window.scrollY > 50) {
             logo.classList.add('visible');
         } else {
             logo.classList.remove('visible');
@@ -75,25 +76,25 @@ document.addEventListener('DOMContentLoaded', function() {
     const modals = document.querySelectorAll('.modal');
     const modalCloses = document.querySelectorAll('.modal-close');
 
-    // Ouvrir la modale correspondante au clic sur le bouton "Voir le projet"
+    // Ouvrir la modale correspondante
     modalButtons.forEach(button => {
         button.addEventListener('click', () => {
             const modalId = button.getAttribute('data-modal');
             const modal = document.getElementById(modalId);
             if (modal) {
-                modal.classList.add('show'); // Ajouter la classe 'show' pour afficher la modale
-                document.body.style.overflow = 'hidden'; // Empêche le défilement de l'arrière-plan
+                modal.classList.add('show');
+                document.body.style.overflow = 'hidden'; // Bloque le scroll
             }
         });
     });
 
-    // Fermer la modale au clic sur le bouton de fermeture
+    // Fermer la modale au clic sur la croix
     modalCloses.forEach(closeBtn => {
         closeBtn.addEventListener('click', () => {
             const modal = closeBtn.closest('.modal');
             if (modal) {
-                modal.classList.remove('show'); // Retirer la classe 'show' pour cacher la modale
-                document.body.style.overflow = ''; // Réactive le défilement de l'arrière-plan
+                modal.classList.remove('show');
+                document.body.style.overflow = ''; // Réactive le scroll
             }
         });
     });
@@ -102,35 +103,80 @@ document.addEventListener('DOMContentLoaded', function() {
     modals.forEach(modal => {
         modal.addEventListener('click', (event) => {
             if (event.target === modal) {
-                modal.classList.remove('show'); // Retirer la classe 'show' pour cacher la modale
-                document.body.style.overflow = ''; // Réactive le défilement de l'arrière-plan
+                modal.classList.remove('show');
+                document.body.style.overflow = ''; // Réactive le scroll
             }
         });
     });
-});
-// Initialisation d'EmailJS
-(function() {
-    emailjs.init("csaavtxg0Jb0SDrtw"); // Remplace TON_USER_ID_EMAILJS par ton vrai user ID EmailJS
-})();
 
-// Formulaire de contact
-const form = document.getElementById("contact-form");
-const formMessage = document.getElementById("form-message");
+    // Initialisation d'EmailJS avec la bonne version du SDK
+    emailjs.init("w-BEFMqJhqCDsKvY2"); // Remplace avec ta clé publique EmailJS
 
-form.addEventListener("submit", function(event) {
-    event.preventDefault();
-    
-    emailjs.sendForm('service_1cjyzga', 'template_cgjz1bk', this)
-        .then(function(response) {
-            console.log('SUCCESS!', response.status, response.text);
-            formMessage.textContent = "Votre message a été envoyé avec succès!";
-            formMessage.style.color = "green";
-        }, function(error) {
-            console.log('FAILED...', error);
-            formMessage.textContent = "Erreur lors de l'envoi du message. Veuillez réessayer.";
-            formMessage.style.color = "red";
+    const form = document.getElementById("contact-form");
+    const formMessage = document.getElementById("form-message");
+
+    if (form) {
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Récupérer les valeurs avant de réinitialiser le formulaire
+            const userEmail = form.querySelector("input[name='email']").value;
+            const userName = form.querySelector("input[name='name']").value;
+
+            console.log("Envoi du formulaire en cours...");
+
+            // Envoyer le formulaire principal
+            emailjs.sendForm('service_1cjyzga', 'template_cgjz1bk', this)
+                .then(function(response) {
+                    console.log('SUCCESS! Formulaire envoyé:', response.status, response.text);
+
+                    // Appeler la fonction de réponse automatique
+                    sendAutoResponse(userName, userEmail).then(() => {
+                        console.log('Réponse automatique envoyée, redirection en cours...');
+                        window.location.href = 'confirmation.html';
+                    }).catch((error) => {
+                        console.error('Erreur lors de l\'envoi de la réponse automatique...', error);
+                    });
+                }, function(error) {
+                    console.error('Échec de l\'envoi du formulaire...', error);
+                    formMessage.textContent = "Erreur lors de l'envoi du message. Veuillez réessayer.";
+                });
+
+            form.reset();
         });
 
-    form.reset();
-});
+    }else {
+        console.error("Formulaire non trouvé");
+    }
 
+    // Fonction pour envoyer la réponse automatique
+    function sendAutoResponse(userName, userEmail) {
+        return new Promise(function(resolve, reject) {
+            // Logs pour valider la récupération des valeurs
+            console.log('Email utilisateur:', userEmail);
+            console.log('Nom utilisateur:', userName);
+
+            if (!userEmail || !userName) {
+                console.error('Les champs email ou nom sont vides.');
+                reject('Les champs email ou nom sont vides.');
+                return;
+            }
+
+            // Configurer les paramètres de l'email automatique
+            const autoResponseParams = {
+                user_name: userName,
+                user_email: userEmail
+            };
+
+            // Envoyer l'email automatique
+            emailjs.send('service_1cjyzga', 'template_u8y4np8', autoResponseParams)
+                .then(function(response) {
+                    console.log('Réponse automatique envoyée avec succès!', response.status, response.text);
+                    resolve();
+                }, function(error) {
+                    console.error('Échec de l\'envoi de la réponse automatique...', error);
+                    reject(error);
+                });
+        });
+    }
+});
