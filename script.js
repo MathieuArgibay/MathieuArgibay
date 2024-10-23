@@ -76,7 +76,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const modals = document.querySelectorAll('.modal');
     const modalCloses = document.querySelectorAll('.modal-close');
 
-    // Ouvrir la modale correspondante
     modalButtons.forEach(button => {
         button.addEventListener('click', () => {
             const modalId = button.getAttribute('data-modal');
@@ -88,7 +87,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // Fermer la modale au clic sur la croix
     modalCloses.forEach(closeBtn => {
         closeBtn.addEventListener('click', () => {
             const modal = closeBtn.closest('.modal');
@@ -99,7 +97,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // Fermer la modale au clic en dehors du contenu
     modals.forEach(modal => {
         modal.addEventListener('click', (event) => {
             if (event.target === modal) {
@@ -114,16 +111,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const form = document.getElementById("contact-form");
     const formMessage = document.getElementById("form-message");
+    const loadingSpinner = document.getElementById("loading-spinner");
 
     if (form) {
         form.addEventListener("submit", function(event) {
             event.preventDefault();
 
+            // Afficher le loader personnalisé pendant l'envoi
+            loadingSpinner.style.display = "flex";
+
             // Récupérer les valeurs avant de réinitialiser le formulaire
             const userEmail = form.querySelector("input[name='email']").value;
             const userName = form.querySelector("input[name='name']").value;
-
-            console.log("Envoi du formulaire en cours...");
 
             // Envoyer le formulaire principal
             emailjs.sendForm('service_1cjyzga', 'template_cgjz1bk', this)
@@ -137,15 +136,20 @@ document.addEventListener("DOMContentLoaded", function() {
                     }).catch((error) => {
                         console.error('Erreur lors de l\'envoi de la réponse automatique...', error);
                     });
+
+                    // Cacher le loader après succès
+                    loadingSpinner.style.display = "none";
                 }, function(error) {
                     console.error('Échec de l\'envoi du formulaire...', error);
                     formMessage.textContent = "Erreur lors de l'envoi du message. Veuillez réessayer.";
+                    formMessage.style.color = "red";
+                    loadingSpinner.style.display = "none"; // Cacher le loader après erreur
                 });
 
             form.reset();
         });
 
-    }else {
+    } else {
         console.error("Formulaire non trouvé");
     }
 
@@ -162,7 +166,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 return;
             }
 
-            // Configurer les paramètres de l'email automatique
             const autoResponseParams = {
                 user_name: userName,
                 user_email: userEmail
