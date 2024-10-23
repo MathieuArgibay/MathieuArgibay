@@ -824,6 +824,31 @@ footer {
         top: 5px;
         right: 10px;
     }
+    @media (max-width: 768px) {
+        .loading-spinner {
+            font-size: 1em;
+        }
+        .circle-container {
+            width: 80px; /* Réduit la taille des cercles sur mobile */
+        }
+        .circle {
+            width: 15px;
+            height: 15px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .loading-spinner {
+            font-size: 0.9em;
+        }
+        .circle-container {
+            width: 60px;
+        }
+        .circle {
+            width: 12px;
+            height: 12px;
+        }
+    }
 
     /* Footer */
     .footer-content {
