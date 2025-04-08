@@ -32,6 +32,8 @@
     <!-- Script pour Font Awesome -->
     <script type="text/javascript"src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 </head>
 <body>
     <header id="header">
@@ -47,6 +49,9 @@
             <div class="nav-toggle">
                 <div class="bar"></div>
             </div>
+
+            <button id="theme-toggle" aria-label="Changer le thème">🌙</button>
+            
             <ul class="nav-menu">
                 <li><a href="#header">Accueil</a></li>
                 <li><a href="#about">À Propos</a></li>
@@ -59,93 +64,98 @@
     <main>
         <section id="about">
             <h3>À Propos</h3>
-            <p>Passionné par les interfaces innovantes, je conçois des expériences visuelles uniques, combinant esthétisme et fluidité.</p>
-            <p>Détail et adaptabilité sont au cœur de mes créations, toujours pensées pour être à la fois fonctionnelles et captivantes.</p>
+            <p>Je suis attentif aux détails et j'aime concevoir des interfaces pratiques et harmonieuses.</p>
+            <p>Chaque projet est pour moi l'occasion de trouver l'équilibre entre design et fonctionnalité.</p>            
             <a class="btn-cv" href="#contact" title="Contactez-moi">Contactez-moi</a>
-            <a class="btn-cv" href="https://mathieuargibay.vercel.app/file/Mathieu%20Argibay.pdf" download target="_blank" title="Télécharger mon CV">Télécharger mon CV</a>
+            <a class="btn-cv" href="https://mathieuargibay.vercel.app/file/MathieuArgibay.pdf" download target="_blank" title="Télécharger mon CV">Télécharger mon CV</a>
         </section>
 
         <section id="skills">
             <h3>Compétences</h3>
             <div class="skills-grid">
-                <!-- Carte de compétence HTML5 -->
+                <!-- HTML5 -->
                 <article class="skill-card">
                     <div class="skill-front">
                         <i class="fab fa-html5 skill-icon"></i>
                         <h4>HTML5</h4>
                     </div>
                     <div class="skill-back">
-                        <p>Expérience avancée en création de structures web sémantiques et optimisées.</p>
+                        <p>Structuration sémantique des pages web avec une attention portée à l’accessibilité.</p>
                     </div>
                 </article>
-                <!-- Carte de compétence CSS3 -->
+        
+                <!-- CSS3 -->
                 <article class="skill-card">
                     <div class="skill-front">
                         <i class="fab fa-css3-alt skill-icon"></i>
                         <h4>CSS3</h4>
                     </div>
                     <div class="skill-back">
-                        <p>Maîtrise des animations, flexbox, grid et design responsive.</p>
+                        <p>Création de mises en page responsive avec Flexbox, Grid et Bootstrap. Quelques animations CSS pour dynamiser l’interface.</p>
                     </div>
                 </article>
-                <!-- Carte de compétence JavaScript -->
+        
+                <!-- JavaScript -->
                 <article class="skill-card">
                     <div class="skill-front">
                         <i class="fab fa-js-square skill-icon"></i>
                         <h4>JavaScript</h4>
                     </div>
                     <div class="skill-back">
-                        <p>Développement d'applications interactives et dynamiques.</p>
+                        <p>Ajout d’interactions comme les menus déroulants, modales et éléments dynamiques. Utilisation ponctuelle de Bootstrap JS.</p>
                     </div>
                 </article>
-                <!-- Compétence PHP -->
+        
+                <!-- PHP -->
                 <article class="skill-card">
                     <div class="skill-front">
                         <i class="fab fa-php skill-icon"></i>
                         <h4>PHP</h4>
                     </div>
                     <div class="skill-back">
-                        <p>Expérience en développement back-end avec PHP pour des applications web robustes.</p>
+                        <p>Développement orienté objet avec gestion de routes, formulaires et interactions avec une base de données.</p>
                     </div>
                 </article>
-                <!-- Compétence Symfony -->
+        
+                <!-- Symfony -->
                 <article class="skill-card">
                     <div class="skill-front">
                         <i class="fab fa-symfony skill-icon"></i>
                         <h4>Symfony</h4>
                     </div>
                     <div class="skill-back">
-                        <p>Maîtrise du framework Symfony pour construire des applications web modulaires et évolutives.</p>
+                        <p>Utilisation du framework pour structurer des applications web, avec une approche modulaire et organisée.</p>
                     </div>
                 </article>
-                <!-- Compétence SQL -->
+        
+                <!-- SQL -->
                 <article class="skill-card">
                     <div class="skill-front">
                         <i class="fas fa-database skill-icon"></i>
                         <h4>SQL</h4>
                     </div>
                     <div class="skill-back">
-                        <p>Compétences solides en gestion et manipulation de bases de données relationnelles.</p>
+                        <p>Création, gestion et interrogation de bases de données relationnelles via SQL et Doctrine.</p>
                     </div>
                 </article>
             </div>
         </section>
-
+        
         <section id="projects">
             <h3>Projets</h3>
             <div class="projects-grid">
                 <!-- Projet 1 -->
                 <article class="project-card">
-                    <img src="img/fleurs.png" alt="Projet 1">
+                    <img src="img/petalescreen/principale/Accueil.png" alt="Projet 1">
                     <h4>Les Pétales Enchantés</h4>
-                    <p>Design d'une boutique en ligne avec une interface utilisateur innovante. (En cours de développement.)</p>
+                    <p>Boutique en ligne moderne avec une interface simple et intuitive. </p>
                     <button class="btn btn-view" data-modal="modal1">Voir le projet</button>
                 </article>
                 <!-- Projet 2 -->
                 <article class="project-card">
-                    <img src="img/GESTION.png" alt="Projet 2">
-                    <h4>Application web de gestion commerciale</h4>
-                    <p>Une application web avec des fonctionnalités de base de données (en cours de développement.)</p>
+                    <img src="img/logscreen/Accueil.png" alt="Projet 2">
+                    <h4>Application d'analyse de log</h4>
+                    <p>Application web pour analyser les logs serveurs en temps réel.</p>
                     <button class="btn btn-view" data-modal="modal2">Voir le projet</button>
                 </article>
                 <!-- Ajoutez d'autres cartes de projets de la même manière -->
@@ -156,19 +166,77 @@
         <!-- Modale du Projet 1 -->
         <div id="modal1" class="modal">
             <div class="modal-content">
-                <span class="modal-close">&times;</span>
-                <img src="img/petalesenchantes.gif" alt="Les Pétales Enchantés Agrandi">
+                <div class="carousel">
+                    <span class="modal-close">&times;</span>
+                    <div class="carousel-slide active">
+                        <video src="img/petalescreen/accueil.mp4" controls muted></video>
+                        <p class="carousel-caption">1- Page d'accueil - version mobile</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <video src="img/petalescreen/navigation.mp4" controls muted></video>
+                        <p class="carousel-caption">2- Navigation - version mobile</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <video src="img/petalescreen/connexionpanier.mp4" controls muted></video>
+                        <p class="carousel-caption">3- Connexion et panier - version mobile</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <video src="img/petalescreen/validationpanier.mp4" controls muted></video>
+                        <p class="carousel-caption">4- Validation panier - version mobile</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <video src="img/petalescreen/profilpanier.mp4" controls muted></video>
+                        <p class="carousel-caption">5- Profil et panier - version mobile</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <video src="img/petalescreen/admin.mp4" controls muted></video>
+                        <p class="carousel-caption">6- Administration - version mobile</p>
+                    </div>
+                    <button class="carousel-prev">&#10094;</button>
+                    <button class="carousel-next">&#10095;</button>
+                </div>
                 <div class="modal-caption">Les Pétales Enchantés</div>
             </div>
         </div>
+
         <!-- Modale du Projet 2 -->
         <div id="modal2" class="modal">
             <div class="modal-content">
-                <span class="modal-close">&times;</span>
-                <img src="img/GestionnaireCommerciale.gif" alt="Application web de gestion commerciale Agrandi">
-                <div class="modal-caption">Application web de gestion commerciale</div>
+                <div class="carousel">
+                    <span class="modal-close">&times;</span>
+                    <div class="carousel-slide active">
+                        <video src="img/logscreen/serveur.mp4" controls muted></video>
+                        <p class="carousel-caption">1- Graphique serveur</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <video src="img/logscreen/domaine.mp4" controls muted></video>
+                        <p class="carousel-caption">2- Liste des domaines</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <video src="img/logscreen/domainegraph.mp4" controls muted></video>
+                        <p class="carousel-caption">3- Graphique domaine</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <video src="img/logscreen/site.mp4" controls muted></video>
+                        <p class="carousel-caption">4- Liste des sites</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <video src="img/logscreen/adresseip.mp4" controls muted></video>
+                        <p class="carousel-caption">5- Liste des adresses ip</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <video src="img/logscreen/gestionseuil.mp4" controls muted></video>
+                        <p class="carousel-caption">6- Gestion des seuils</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <video src="img/logscreen/alertes.mp4" controls muted></video>
+                        <p class="carousel-caption">7- Liste des alertes et notifications</p>
+                    </div>
+                    <button class="carousel-prev">&#10094;</button>
+                    <button class="carousel-next">&#10095;</button>
+                </div>
+                <div class="modal-caption">Log Analyser</div>
             </div>
-        </div>
     </main>
 
     <section id="contact" class="section contact">
@@ -177,19 +245,23 @@
             <input type="text" name="name" placeholder="Votre nom" required>
             <input type="email" name="email" placeholder="Votre email" required>
             <textarea name="message" placeholder="Votre message" rows="6" required></textarea>
+            <!-- Le widget reCAPTCHA -->
+            <div class="g-recaptcha" data-sitekey="6LdjrA4rAAAAALCzaPx-8zlAnsViTq7YPaVziWG1"></div>
             <button type="submit">Envoyer</button>
         </form>
         <p id="form-message"></p>
     </section>
+    
+
     <!-- Loader personnalisé pour l'envoi de l'email -->
-<div id="loading-spinner" class="loading-spinner" style="display: none;">
-    <div class="circle-container">
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
+    <div id="loading-spinner" class="loading-spinner" style="display: none;">
+        <div class="circle-container">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+        </div>
+        <p>Envoi en cours, merci de patienter...</p>
     </div>
-    <p>Envoi en cours, merci de patienter...</p>
-</div>
 
 </main>
 
@@ -207,8 +279,8 @@
                 <h3>Suivez-moi</h3>
                 <div class="social-icons">
                     <a href="https://www.linkedin.com/in/mathieu-argibay7895123/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/Devdokidoc" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="https://mathieuargibay.vercel.app/Mathieu%20Argibay.pdf" download target="_blank" title="Télécharger mon CV"><i class="fas fa-file-alt"></i></a>
+                    <a href="https://github.com/MathieuArgibay" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://mathieuargibay.vercel.app/MathieuArgibay.pdf" download target="_blank" title="Télécharger mon CV"><i class="fas fa-file-alt"></i></a>
                 </div>
             </div>
         </div>

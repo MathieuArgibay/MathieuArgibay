@@ -3,11 +3,11 @@ body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
-    background: -webkit-linear-gradient(left, #6A82FB, #FC5C7D); /* Préfixe pour Safari */
-    background: linear-gradient(to right, #6A82FB, #FC5C7D);
-    color: #fff;
-    scroll-behavior: smooth; /* Désactivé car non pris en charge par les anciennes versions de Safari */
+    background-color: #484C7F;
+    color: #f4f4f4; /* Texte un peu moins blanc pur */
+    scroll-behavior: smooth;
 }
+
 
 html {
     scroll-behavior: smooth;  //*Désactivé pour compatibilité */
@@ -386,6 +386,81 @@ h3::after {
     color: #FFD700;
 }
 
+/* Carousel */
+.carousel {
+    background-color: rgba(29, 26, 53, 0.7);
+    border-radius: 20px;
+    position: relative;
+    width: 100%;
+    margin: auto;
+    padding-top:10px;
+    /* max-height: 80vh; */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-prev,
+.carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2em;
+    background: rgba(0, 0, 0, 0.3);
+    color: #FFD700;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    z-index: 10;
+    
+}
+
+.carousel-prev:hover,
+.carousel-next:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.carousel-prev { left: 15px; }
+.carousel-next { right: 15px; }
+
+.carousel-prev,
+.carousel-next {
+    transition: none !important;
+    transform: none !important;
+}
+
+.carousel-prev:hover,
+.carousel-next:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    background-color: rgba(0, 0, 0, 0.4); /* optionnel : hover visuel */
+}
+.carousel-slide {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+.carousel-slide.active {
+    display: flex;
+}
+
+.carousel-caption {
+    margin-top: 10px;
+    font-size: 1em;
+    color: #FFD700;
+    text-align: center;
+}
+.carousel video {
+    border-radius: 5px;
+    height: auto;
+    max-width: 100vw;
+    max-height: 70vh; /* Pour ne pas cacher le titre en dessous */
+    }
+
 /* Formulaire de contact */
 
 .contact {
@@ -552,7 +627,7 @@ button:hover {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.7);
     overflow: hidden;
 }
 
@@ -564,21 +639,16 @@ button:hover {
 
 .modal-content {
     position: relative;
-    max-width: 90%;
-    max-height: 90%;
+    width: 90vw;       /* 90% de la largeur du viewport */
+    max-width: 90vw;   /* on s'assure qu'elle ne dépasse pas 90vw */
+    max-height: 90vh;  /* on limite la hauteur à 90% du viewport */
     margin: auto;
     border-radius: 10px;
-    overflow: hidden;
-    background-color: transparent;
-    -webkit-animation: zoom 0.3s ease-out;
-    animation: zoom 0.3s ease-out;
+    overflow-y: auto;  /* activation du défilement vertical si nécessaire */
+    box-sizing: border-box; /* inclut padding et border dans la largeur totale */
+    background-color: transparent; /* ou une autre couleur si besoin */
 }
 
-.modal-content img {
-    width: 100%;
-    min-height: 250px;
-    display: block;
-}
 
 .modal-close {
     position: absolute;
@@ -750,13 +820,18 @@ footer {
 /* 768px */
 
 @media (max-width: 768px) {
+    #theme-toggle{
+        padding: 5px !important;
+        top: 10px !important;
+        right: 70px !important;
+    }
     /* Nav */
     .nav-toggle {
         display: block;
         position: fixed;
         top: 15px;
         right: 20px;
-        z-index: 1001;
+        z-index: 999;
     }
 
     .nav-menu {
@@ -814,30 +889,42 @@ footer {
 
     /* MODAL */
 
-    .modal-content {
-        max-width: 95%;
-        max-height: 75%;
-    }
-
     .modal-close {
         font-size: 25px;
-        top: 5px;
+        top: 10px;
         right: 10px;
     }
-    @media (max-width: 768px) {
-        .loading-spinner {
-            font-size: 1em;
-        }
-        .circle-container {
-            width: 80px; /* Réduit la taille des cercles sur mobile */
-        }
-        .circle {
-            width: 15px;
-            height: 15px;
-        }
+    .carousel {
+        width: 100%;
+        margin: auto;
+        padding-top:10px;
+        /* max-height: 80vh; */
+
+    }
+
+    .carousel-caption {
+        font-size: 0.95rem;
+        padding: 5px 10px;
+    }
+
+    .loading-spinner {
+        font-size: 1em;
+    }
+    .circle-container {
+        width: 80px; /* Réduit la taille des cercles sur mobile */
+    }
+    .circle {
+        width: 15px;
+        height: 15px;
     }
     
+}
     @media (max-width: 480px) {
+
+        .logo img {
+            height: 60px; /* Taille réduite du logo */
+        }
+        
         .loading-spinner {
             font-size: 0.9em;
         }
@@ -870,7 +957,7 @@ footer {
         right: 15px;
         padding: 12px;
     }
-}
+
 
 @media screen and (max-width: 400px) {
     .nav-menu li {
@@ -884,4 +971,73 @@ footer {
     .nav-menu li {
         margin: 0;
     }
+}
+
+
+/* THEMES */
+#theme-toggle{
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 999;
+    background: none;
+    border: none;
+    padding: 15px;
+    /* font-size: 1.5rem; */
+    cursor: pointer;
+}
+
+body,
+header,
+footer {
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Thème clair */
+body.light-theme {
+    background-color: #7C75B3; /* Violet-gris moyen (proche de #484C7F) */
+    color: #fefefe;
+}
+
+body.light-theme header,
+body.light-theme .skill-front,
+body.light-theme .project-card {
+    background-color: #9A94CC; /* Cartes légèrement plus claires */
+    color: #fefefe;
+}
+
+body.light-theme .skill-back {
+    background-color: #8B84C0;
+    color: #fefefe;
+}
+
+body.light-theme footer {
+    background-color: #6C669B;
+    color: #fefefe;
+}
+
+
+
+/* Thème sombre */
+body.dark-theme {
+    background-color: #2C2848; /* Plus sombre que #3E3A63, mais pas noir */
+    color: #f0f0f0;
+}
+
+body.dark-theme header,
+body.dark-theme .skill-front,
+body.dark-theme .project-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #f0f0f0;
+}
+
+body.dark-theme .skill-back,
+body.dark-theme .modal {
+    background-color: rgba(10, 10, 30, 0.6); /* plus sombre */
+    color: #f0f0f0;
+}
+
+body.dark-theme footer {
+    background-color: #1D1A35;
+    color: #f0f0f0;
 }

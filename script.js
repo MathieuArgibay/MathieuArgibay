@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
         observer.observe(section);
     });
 
+
     // Bouton "Retour en haut"
     const backToTopButton = document.getElementById('back-to-top');
     if (backToTopButton) {
@@ -35,6 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
             behavior: 'smooth'
         });
     });
+
 
     // Fonctionnalité du menu burger
     const navToggle = document.querySelector('.nav-toggle');
@@ -57,6 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
+
     // Apparition du logo lors du scroll
     const logo = document.querySelector('.logo');
 
@@ -70,6 +73,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // Initialisation
+
 
     // Gestion des modales pour les projets
     const modalButtons = document.querySelectorAll('.btn-view');
@@ -106,6 +110,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
+
     // Initialisation d'EmailJS avec la bonne version du SDK
     emailjs.init("w-BEFMqJhqCDsKvY2"); // Remplace avec ta clé publique EmailJS
 
@@ -116,6 +121,13 @@ document.addEventListener("DOMContentLoaded", function() {
     if (form) {
         form.addEventListener("submit", function(event) {
             event.preventDefault();
+                // Vérification du reCAPTCHA
+            const recaptchaResponse = grecaptcha.getResponse();
+            if(recaptchaResponse.length === 0) {
+                formMessage.textContent = "Merci de vérifier le reCAPTCHA.";
+                formMessage.style.color = "red";
+                return;  // Arrêter l'envoi si non validé
+            }
 
             // Afficher le loader personnalisé pendant l'envoi
             loadingSpinner.style.display = "flex";
@@ -147,11 +159,14 @@ document.addEventListener("DOMContentLoaded", function() {
                 });
 
             form.reset();
+            // Reset le widget reCAPTCHA afin qu'il soit prêt pour une nouvelle soumission
+            grecaptcha.reset();
         });
 
     } else {
         console.error("Formulaire non trouvé");
     }
+
 
     // Fonction pour envoyer la réponse automatique
     function sendAutoResponse(userName, userEmail) {
@@ -182,4 +197,56 @@ document.addEventListener("DOMContentLoaded", function() {
                 });
         });
     }
+// Carousel
+document.querySelectorAll('.modal').forEach(modal => {
+    const slides = modal.querySelectorAll('.carousel-slide');
+    let current = 0;
+
+    const showSlide = index => {
+        slides.forEach((img, i) => img.classList.toggle('active', i === index));
+    };
+
+    modal.querySelector('.carousel-prev')?.addEventListener('click', () => {
+        current = (current - 1 + slides.length) % slides.length;
+        showSlide(current);
+    });
+
+    modal.querySelector('.carousel-next')?.addEventListener('click', () => {
+        current = (current + 1) % slides.length;
+        showSlide(current);
+    });
+
+    // Reset to first image when modal opens
+    modal.addEventListener('show', () => {
+        current = 0;
+        showSlide(current);
+    });
+});
+
+// THEMESWITCH
+const toggleBtn = document.getElementById('theme-toggle');
+const body = document.body;
+
+// Vérifie s'il y a un thème sauvegardé, sinon utilise "dark"
+let savedTheme = localStorage.getItem('theme');
+
+if (!savedTheme) {
+    savedTheme = 'dark';
+    localStorage.setItem('theme', savedTheme);
+}
+
+body.classList.add(`${savedTheme}-theme`);
+toggleBtn.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
+// Toggle au clic
+toggleBtn.addEventListener('click', () => {
+    const isDark = body.classList.contains('dark-theme');
+    body.classList.toggle('dark-theme', !isDark);
+    body.classList.toggle('light-theme', isDark);
+
+    const newTheme = isDark ? 'light' : 'dark';
+    toggleBtn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+    localStorage.setItem('theme', newTheme);
+});
+
 });
