@@ -335,8 +335,10 @@ h3::after {
 
 .project-card img {
     width: 100%;
-    height: auto;
+    height: 200px; /* ou 180px selon ton visuel */
+    object-fit: cover;
 }
+
 
 .project-card h4 {
     margin: 15px 0;
@@ -363,6 +365,34 @@ h3::after {
 .project-card .btn:hover {
     background-color: rgba(0, 0, 0, 0.5);
     color: #FFD700;
+}
+
+.project-card .btn[disabled] {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #aaa;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.project-card.project-upcoming {
+    animation: floatUp 3s ease-in-out infinite;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+    border: 1px dashed #FFD700;
+    transition: transform 0.3s;
+}
+
+.project-card.project-upcoming:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+}
+
+@keyframes floatUp {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
 }
 
 /* Styles pour le bouton "Voir le projet" */
