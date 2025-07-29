@@ -158,67 +158,63 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // =========================
-    // Formulaire (EmailJS + reCAPTCHA)
-    // =========================
-    const form = document.getElementById("contact-form");
-    const formMessage = document.getElementById("form-message");
-    const loadingSpinner = document.getElementById("loading-spinner");
+// =========================
+// Formulaire (EmailJS + reCAPTCHA + Redirection)
+// =========================
+const form = document.getElementById("contact-form");
+const formMessage = document.getElementById("form-message");
+const loadingSpinner = document.getElementById("loading-spinner");
 
-    if (form) {
-        // Initialisation EmailJS
-        if (typeof emailjs !== 'undefined') {
-            emailjs.init("w-BEFMqJhqCDsKvY2"); // Remplace par ta clé publique
-        }
-
-        form.addEventListener("submit", function (event) {
-            event.preventDefault();
-
-            // Vérification reCAPTCHA
-            if (typeof grecaptcha !== "undefined") {
-                const recaptchaResponse = grecaptcha.getResponse();
-                if (recaptchaResponse.length === 0) {
-                    formMessage.textContent = "Merci de vérifier le reCAPTCHA.";
-                    formMessage.style.color = "red";
-                    return;
-                }
-            }
-
-            loadingSpinner.style.display = "flex";
-
-            const userEmail = form.querySelector("input[name='email']").value;
-            const userName = form.querySelector("input[name='name']").value;
-
-            // Envoi EmailJS
-            emailjs.sendForm('service_1cjyzga', 'template_cgjz1bk', this)
-                .then(() => {
-                    sendAutoResponse(userName, userEmail).then(() => {
-                        window.location.href = 'confirmation.html';
-                    });
-                    formMessage.textContent = "Message envoyé avec succès !";
-                    formMessage.style.color = "green";
-                })
-                .catch(() => {
-                    formMessage.textContent = "Erreur lors de l'envoi. Veuillez réessayer.";
-                    formMessage.style.color = "red";
-                })
-                .finally(() => {
-                    loadingSpinner.style.display = "none";
-                    form.reset();
-                    if (typeof grecaptcha !== "undefined") grecaptcha.reset();
-                });
-        });
-
-        // Réponse automatique
-        function sendAutoResponse(userName, userEmail) {
-            return new Promise((resolve, reject) => {
-                if (!userEmail || !userName) return reject("Données manquantes");
-                const params = { user_name: userName, user_email: userEmail };
-                emailjs.send('service_1cjyzga', 'template_u8y4np8', params)
-                    .then(resolve)
-                    .catch(reject);
-            });
-        }
+if (form) { 
+    if (typeof emailjs !== 'undefined') {
+        emailjs.init("w-BEFMqJhqCDsKvY2");
     }
 
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        // Vérification reCAPTCHA
+        if (typeof grecaptcha !== "undefined") {
+            const recaptchaResponse = grecaptcha.getResponse();
+            if (recaptchaResponse.length === 0) {
+                formMessage.textContent = "Merci de vérifier le reCAPTCHA.";
+                formMessage.style.color = "red";
+                return;
+            }
+        }
+
+        loadingSpinner.style.display = "flex";
+        const userEmail = form.querySelector("input[name='email']").value;
+        const userName = form.querySelector("input[name='name']").value;
+
+        // Envoi EmailJS
+        emailjs.sendForm('service_1cjyzga', 'template_cgjz1bk', this)
+            .then(() => {
+                // Réponse automatique puis redirection
+                sendAutoResponse(userName, userEmail)
+                    .finally(() => window.location.href = 'confirmation.html');
+                formMessage.textContent = "Message envoyé avec succès !";
+                formMessage.style.color = "green";
+            })
+            .catch(() => {
+                formMessage.textContent = "Erreur lors de l'envoi. Veuillez réessayer.";
+                formMessage.style.color = "red";
+            })
+            .finally(() => {
+                loadingSpinner.style.display = "none";
+                form.reset();
+                if (typeof grecaptcha !== "undefined") grecaptcha.reset();
+            });
+    });
+
+    function sendAutoResponse(userName, userEmail) {
+        return new Promise((resolve, reject) => {
+            if (!userEmail || !userName) return reject("Données manquantes");
+            const params = { user_name: userName, user_email: userEmail };
+            emailjs.send('service_1cjyzga', 'template_u8y4np8', params)
+                .then(resolve)
+                .catch(reject);
+        });
+    }
+}
 });
