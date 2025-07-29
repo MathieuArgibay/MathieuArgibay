@@ -2,260 +2,114 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Mathieu Argibay</title>
+    <title>Mathieu Argibay - Création Digitale</title>
     <link rel="shortcut icon" href="/img/mayellow.png" type="image/png">
-    <meta name="description" content="Développeur web passionné, spécialisé en HTML, CSS, JavaScript, PHP et Symfony.
-    Création de sites web performants, responsive, et optimisés SEO. Disponible pour des projets de développement front-end et back-end.">
-    <meta name="keywords" content="Développeur web, HTML, CSS, JavaScript, PHP, Symfony, Front-end, Back-end, développement web,
-     sites web responsive, SEO, Angoulême, projets web, création de site, développeur full-stack">
-    
-        <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="CV - Développeur Web | Mathieu Argibay" />
-    <meta property="og:description" content="Développeur web spécialisé en HTML, CSS, JavaScript, PHP et Symfony. Passionné par la création de sites web performants et optimisés SEO. Consultez mon CV pour découvrir mes compétences en développement front-end et back-end." />
-    <meta property="og:image" content="https://mathieuargibay.vercel.app/img/mayellow.png" />
-    <meta property="og:url" content="https://mathieuargibay.vercel.app/" />
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="fr_FR" />
-
-    <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Lien vers la feuille de style CSS -->
     <link rel="stylesheet" href="style.css">
-    <!-- Importation des polices Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <!-- Lien vers Font Awesome pour les icônes -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <!-- Lien vers animate.css pour les animations -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <!-- Script pour Font Awesome -->
-    <script type="text/javascript"src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
 </head>
 <body>
-    <header id="header">
-        <div class="logo-main"><img src="./img/mayellow.png" alt="Logo principal"></div>
-        <h1 class="animate__animated animate__backInDown">Mathieu Argibay</h1>
-        <h2>Développeur Web Full Stack</h2>
-    </header>
-
-    <!-- Menu de navigation amélioré -->
-    <nav>
-        <div class="nav-container">
-            <div class="logo"><img src="./img/mayellow.png" alt="Logo"></div>
-            <div class="nav-toggle">
-                <div class="bar"></div>
-            </div>
-
-            <button id="theme-toggle" aria-label="Changer le thème">🌙</button>
-            
-            <ul class="nav-menu">
-                <li><a href="#header">Accueil</a></li>
-                <li><a href="#about">À Propos</a></li>
-                <li><a href="#skills">Compétences</a></li>
-                <li><a href="#projects">Projets</a></li>
-                <li><a href="#footer">Contact</a></li>
-            </ul>
+    <!-- Hero fullscreen -->
+    <section style="display:flex;flex-direction:column;align-items:center;color:white;text-align:center;height:100vh;">
+        <div class="logo-main">
+            <img src="./img/mayellow.png" alt="Logo">
         </div>
-    </nav>
-    <main>
-        <section id="about">
-            <h3>À Propos</h3>
-            <p>Je suis attentif aux détails et j'aime concevoir des interfaces pratiques et harmonieuses.</p>
-            <p>Chaque projet est pour moi l'occasion de trouver l'équilibre entre design et fonctionnalité.</p>            
-            <a class="btn-cv" href="#contact" title="Contactez-moi">Contactez-moi</a>
-            <a class="btn-cv" href="https://mathieuargibay.vercel.app/file/MathieuArgibay.pdf" download target="_blank" title="Télécharger mon CV">Télécharger mon CV</a>
-        </section>
+        <h1 style="font-size:3.2em;margin-bottom:20px;">Développons votre présence digitale</h1>
+        <p style="font-size:1.3em;max-width:750px;">Sites web personnalisés, identité visuelle impactante et stratégies de communication adaptées à vos besoins.</p>
+        <div style="margin-top:60px;">
+            <a class="btn-cv" href="/portfolio/">Mon portfolio</a>
+            <a class="btn-cv" href="#contact">Contactez-moi</a>
+        </div>
+    </section>
 
-        <section id="skills">
-            <h3>Compétences</h3>
-            <div class="skills-grid">
-                <!-- HTML5 -->
-                <article class="skill-card">
-                    <div class="skill-front">
-                        <i class="fab fa-html5 skill-icon"></i>
-                        <h4>HTML5</h4>
-                    </div>
-                    <div class="skill-back">
-                        <p>Structuration sémantique des pages web avec une attention portée à l’accessibilité.</p>
-                    </div>
-                </article>
-        
-                <!-- CSS3 -->
-                <article class="skill-card">
-                    <div class="skill-front">
-                        <i class="fab fa-css3-alt skill-icon"></i>
-                        <h4>CSS3</h4>
-                    </div>
-                    <div class="skill-back">
-                        <p>Création de mises en page responsive avec Flexbox, Grid et Bootstrap. Quelques animations CSS pour dynamiser l’interface.</p>
-                    </div>
-                </article>
-        
-                <!-- JavaScript -->
-                <article class="skill-card">
-                    <div class="skill-front">
-                        <i class="fab fa-js-square skill-icon"></i>
-                        <h4>JavaScript</h4>
-                    </div>
-                    <div class="skill-back">
-                        <p>Ajout d’interactions comme les menus déroulants, modales et éléments dynamiques. Utilisation ponctuelle de Bootstrap JS.</p>
-                    </div>
-                </article>
-        
-                <!-- PHP -->
-                <article class="skill-card">
-                    <div class="skill-front">
-                        <i class="fab fa-php skill-icon"></i>
-                        <h4>PHP</h4>
-                    </div>
-                    <div class="skill-back">
-                        <p>Développement orienté objet avec gestion de routes, formulaires et interactions avec une base de données.</p>
-                    </div>
-                </article>
-        
-                <!-- Symfony -->
-                <article class="skill-card">
-                    <div class="skill-front">
-                        <i class="fab fa-symfony skill-icon"></i>
-                        <h4>Symfony</h4>
-                    </div>
-                    <div class="skill-back">
-                        <p>Utilisation du framework pour structurer des applications web, avec une approche modulaire et organisée.</p>
-                    </div>
-                </article>
-        
-                <!-- SQL -->
-                <article class="skill-card">
-                    <div class="skill-front">
-                        <i class="fas fa-database skill-icon"></i>
-                        <h4>SQL</h4>
-                    </div>
-                    <div class="skill-back">
-                        <p>Création, gestion et interrogation de bases de données relationnelles via SQL et Doctrine.</p>
-                    </div>
-                </article>
+    <!-- Pourquoi travailler avec moi -->
+    <section style="padding:80px 20px;text-align:center;background:rgba(255,255,255,0.03);">
+        <h2 style="font-size:2.5em;margin-bottom:50px;">Pourquoi travailler avec moi ?</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:40px;max-width:1100px;margin:auto;">
+            <div style="padding:30px;">
+                <i class="fas fa-user-tie" style="font-size:3em;color:#FFD700;"></i>
+                <h3>Expertise</h3>
+                <p>Une approche professionnelle alliant design et développement.</p>
             </div>
-        </section>
-        
-        <section id="projects">
-            <h3>Projets</h3>
-            <div class="projects-grid">
-                <!-- Projet 1 -->
-                <article class="project-card">
-                    <img src="img/petalescreen/Accueil.png" alt="Projet 1">
-                    <h4>Les Pétales Enchantés</h4>
-                    <p>Boutique en ligne moderne avec une interface simple et intuitive. </p>
-                    <button class="btn btn-view" data-modal="modal1">Voir le projet</button>
-                </article>
-                <!-- Projet 2 -->
-                <article class="project-card">
-                    <img src="img/logscreen/Accueil.png" alt="Projet 2">
-                    <h4>Application d'analyse de log</h4>
-                    <p>Application web pour analyser les logs serveurs en temps réel.</p>
-                    <button class="btn btn-view" data-modal="modal2">Voir le projet</button>
-                </article>
-                <!-- Projet 3 -->
-                <article class="project-card">
-                    <img src="img/codequest/accueil.png" alt="Projet 3">
-                    <h4>CodeQuest</h4>
-                    <p>Plateforme de défis de code quotidiens avec gain d'expérience, classement et progression utilisateur.</p>
-                    <button class="btn btn-view" disabled data-modal="modal3">Projet en cours</button>
-                </article>                
-                <!-- Projet 4 -->
-                <article class="project-card project-upcoming">
-                    <img src="img/workinprogress.png" alt="Projet à venir">
-                    <h4>Projet à venir</h4>
-                    <p>Un nouveau projet est en préparation. Disponible prochainement !</p>
-                    <button class="btn btn-view" disabled>À venir</button>
-                </article>                                                          
-                <!-- Ajoutez d'autres cartes de projets de la même manière -->
+            <div style="padding:30px;">
+                <i class="fas fa-rocket" style="font-size:3em;color:#FFD700;"></i>
+                <h3>Performance</h3>
+                <p>Des solutions rapides, modernes et adaptées à vos objectifs.</p>
             </div>
-            </div>
-        </section>
-
-        <!-- Modales pour les projets -->
-        <!-- Modale du Projet 1 -->
-        <div id="modal1" class="modal">
-            <div class="modal-content">
-                <div class="carousel">
-                    <span class="modal-close">&times;</span>
-                    <div class="carousel-slide active">
-                        <video src="img/petalescreen/accueil.mp4" controls muted></video>
-                        <p class="carousel-caption">1- Page d'accueil - version mobile</p>
-                    </div>
-                    <div class="carousel-slide">
-                        <video src="img/petalescreen/navigation.mp4" controls muted></video>
-                        <p class="carousel-caption">2- Navigation - version mobile</p>
-                    </div>
-                    <div class="carousel-slide">
-                        <video src="img/petalescreen/connexionpanier.mp4" controls muted></video>
-                        <p class="carousel-caption">3- Connexion et panier - version mobile</p>
-                    </div>
-                    <div class="carousel-slide">
-                        <video src="img/petalescreen/validationpanier.mp4" controls muted></video>
-                        <p class="carousel-caption">4- Validation panier - version mobile</p>
-                    </div>
-                    <div class="carousel-slide">
-                        <video src="img/petalescreen/profilpanier.mp4" controls muted></video>
-                        <p class="carousel-caption">5- Profil et panier - version mobile</p>
-                    </div>
-                    <div class="carousel-slide">
-                        <video src="img/petalescreen/admin.mp4" controls muted></video>
-                        <p class="carousel-caption">6- Administration - version mobile</p>
-                    </div>
-                    <button class="carousel-prev">&#10094;</button>
-                    <button class="carousel-next">&#10095;</button>
-                </div>
-                <div class="modal-caption">Les Pétales Enchantés</div>
+            <div style="padding:30px;">
+                <i class="fas fa-handshake" style="font-size:3em;color:#FFD700;"></i>
+                <h3>Accompagnement</h3>
+                <p>Un suivi personnalisé de la conception à la mise en ligne.</p>
             </div>
         </div>
+    </section>
 
-        <!-- Modale du Projet 2 -->
-        <div id="modal2" class="modal">
-            <div class="modal-content">
-                <div class="carousel">
-                    <span class="modal-close">&times;</span>
-                    <div class="carousel-slide active">
-                        <video src="img/logscreen/serveur.mp4" controls muted></video>
-                        <p class="carousel-caption">1- Graphique serveur</p>
-                    </div>
-                    <div class="carousel-slide">
-                        <video src="img/logscreen/domaine.mp4" controls muted></video>
-                        <p class="carousel-caption">2- Liste des domaines</p>
-                    </div>
-                    <div class="carousel-slide">
-                        <video src="img/logscreen/domainegraph.mp4" controls muted></video>
-                        <p class="carousel-caption">3- Graphique domaine</p>
-                    </div>
-                    <div class="carousel-slide">
-                        <video src="img/logscreen/site.mp4" controls muted></video>
-                        <p class="carousel-caption">4- Liste des sites</p>
-                    </div>
-                    <div class="carousel-slide">
-                        <video src="img/logscreen/adresseip.mp4" controls muted></video>
-                        <p class="carousel-caption">5- Liste des adresses ip</p>
-                    </div>
-                    <div class="carousel-slide">
-                        <video src="img/logscreen/gestionseuil.mp4" controls muted></video>
-                        <p class="carousel-caption">6- Gestion des seuils</p>
-                    </div>
-                    <div class="carousel-slide">
-                        <video src="img/logscreen/alertes.mp4" controls muted></video>
-                        <p class="carousel-caption">7- Liste des alertes et notifications</p>
-                    </div>
-                    <button class="carousel-prev">&#10094;</button>
-                    <button class="carousel-next">&#10095;</button>
-                </div>
-                <div class="modal-caption">Log Analyser</div>
+    <!-- Sites web personnalisés -->
+    <section style="padding:80px 20px;text-align:center;">
+        <h2 style="font-size:2.5em;margin-bottom:50px;">Sites Web Personnalisés</h2>
+        <p style="max-width:800px;margin:0 auto 40px;">Je conçois des sites web entièrement personnalisés, pensés pour refléter votre image et atteindre vos objectifs.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;max-width:1100px;margin:auto;">
+            <div style="background:rgba(255,255,255,0.05);padding:30px;border-radius:10px;">
+                <h3>Site vitrine</h3>
+                <p>Présentez votre activité grâce à un site élégant et rapide, parfaitement adapté aux petites entreprises et indépendants.</p>
             </div>
-    </main>
+            <div style="background:rgba(255,255,255,0.05);padding:30px;border-radius:10px;">
+                <h3>E‑commerce</h3>
+                <p>Créez une boutique en ligne moderne avec paiement sécurisé et gestion facile de vos produits et commandes.</p>
+            </div>
+            <div style="background:rgba(255,255,255,0.05);padding:30px;border-radius:10px;">
+                <h3>Refonte & optimisation</h3>
+                <p>Modernisez votre site existant, améliorez ses performances et optimisez l'expérience utilisateur.</p>
+            </div>
+        </div>
+    </section>
 
-    <section id="contact" class="section contact">
-        <h3>Contactez-moi</h3>
+    <!-- Identité visuelle -->
+    <section style="padding:80px 20px;text-align:center;background:rgba(255,255,255,0.03);">
+        <h2 style="font-size:2.5em;margin-bottom:50px;">Identité Visuelle</h2>
+        <p style="max-width:800px;margin:0 auto 40px;">Je construis une identité visuelle cohérente et forte pour votre marque afin de marquer les esprits.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;max-width:1100px;margin:auto;">
+            <div style="background:rgba(255,255,255,0.05);padding:30px;border-radius:10px;">
+                <h3>Logos sur mesure</h3>
+                <p>Des logos uniques et adaptés à votre image, conçus pour vous différencier.</p>
+            </div>
+            <div style="background:rgba(255,255,255,0.05);padding:30px;border-radius:10px;">
+                <h3>Charte graphique</h3>
+                <p>Définissez les couleurs, typographies et visuels qui rendront votre communication homogène.</p>
+            </div>
+            <div style="background:rgba(255,255,255,0.05);padding:30px;border-radius:10px;">
+                <h3>Supports de communication</h3>
+                <p>Création de cartes de visite, flyers et autres supports imprimés ou digitaux pour renforcer votre visibilité.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Communication digitale -->
+    <section style="padding:80px 20px;text-align:center;">
+        <h2 style="font-size:2.5em;margin-bottom:50px;">Communication Digitale</h2>
+        <p style="max-width:800px;margin:0 auto 40px;">Améliorez votre visibilité grâce à des stratégies digitales adaptées et des conseils personnalisés.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;max-width:1100px;margin:auto;">
+            <div style="background:rgba(255,255,255,0.05);padding:30px;border-radius:10px;">
+                <h3>Stratégies réseaux sociaux</h3>
+                <p>Développez votre audience et engagez votre communauté avec des contenus adaptés.</p>
+            </div>
+            <div style="background:rgba(255,255,255,0.05);padding:30px;border-radius:10px;">
+                <h3>SEO</h3>
+                <p>Optimisez votre site pour améliorer son positionnement dans les moteurs de recherche.</p>
+            </div>
+            <div style="background:rgba(255,255,255,0.05);padding:30px;border-radius:10px;">
+                <h3>Conseils personnalisés</h3>
+                <p>Bénéficiez d’un accompagnement sur mesure pour renforcer votre présence en ligne.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" style="padding:80px 20px;text-align:center;background:rgba(255,255,255,0.03);">
+        <h2 style="font-size:2.5em;margin-bottom:50px;">Contactez-moi</h2>
+        <p style="max-width:600px;margin:10px auto 40px;">Prêt à donner vie à votre projet ?<br>Remplissez le formulaire ci-dessous et discutons-en.</p>
         <form id="contact-form">
             <input type="text" name="name" placeholder="Votre nom" required>
             <input type="email" name="email" placeholder="Votre email" required>
@@ -266,9 +120,8 @@
         </form>
         <p id="form-message"></p>
     </section>
-    
 
-    <!-- Loader personnalisé pour l'envoi de l'email -->
+    <!-- Loader -->
     <div id="loading-spinner" class="loading-spinner" style="display: none;">
         <div class="circle-container">
             <div class="circle"></div>
@@ -277,9 +130,6 @@
         </div>
         <p>Envoi en cours, merci de patienter...</p>
     </div>
-
-</main>
-
 
     <!-- Footer -->
     <footer id="footer">
@@ -293,9 +143,9 @@
             <div class="footer-section">
                 <h3>Suivez-moi</h3>
                 <div class="social-icons">
-                    <a href="https://www.linkedin.com/in/mathieu-argibay7895123/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/MathieuArgibay" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="https://mathieuargibay.vercel.app/file/MathieuArgibay.pdf" download target="_blank" title="Télécharger mon CV"><i class="fas fa-file-alt"></i></a>
+                    <a href="https://www.linkedin.com/in/mathieu-argibay7895123/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/MathieuArgibay" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://mathieuargibay.vercel.app/file/MathieuArgibay.pdf" download target="_blank"><i class="fas fa-file-alt"></i></a>
                 </div>
             </div>
         </div>
@@ -304,10 +154,7 @@
         </div>
     </footer>
 
-    <!-- Bouton "Retour en haut" -->
     <button id="back-to-top"><i class="fas fa-arrow-up"></i></button>
-    <!-- Lien vers le fichier JavaScript -->
     <script type="text/javascript" src="script.js"></script>
-        <!-- Inclusion du SDK EmailJS -->
 </body>
 </html>
