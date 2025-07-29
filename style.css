@@ -840,6 +840,22 @@ footer {
     color: #ccc;
 }
 
+
+.hero {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    color:white;
+    text-align:center;
+}
+.hero h1 {
+    font-size:3.2em!important;
+    margin-bottom:20px!important;
+}
+.hero p {
+    font-size:1.3em!important;
+    max-width:750px!important;
+}
 /* MEDIA QUERY */
 
 /* 1024px */
@@ -951,6 +967,15 @@ footer {
         width: 15px;
         height: 15px;
     }
+    .hero h1 {
+        font-size: 2em!important;
+
+    }
+    .hero p {
+        max-width:750px;
+        font-size:1em;
+    }
+    
     
 }
     @media (max-width: 480px) {
@@ -968,6 +993,12 @@ footer {
         .circle {
             width: 12px;
             height: 12px;
+        }
+        h3 {
+            font-size: 1.5em;
+        }
+        h2 {
+            font-size: 2em;
         }
     }
 
