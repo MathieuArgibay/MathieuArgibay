@@ -192,7 +192,7 @@ if (form) {
             .then(() => {
                 // Réponse automatique puis redirection
                 sendAutoResponse(userName, userEmail)
-                    .finally(() => window.location.href = 'confirmation.html');
+                    .finally(() => window.location.href = '/confirmation.html');
                 formMessage.textContent = "Message envoyé avec succès !";
                 formMessage.style.color = "green";
             })
