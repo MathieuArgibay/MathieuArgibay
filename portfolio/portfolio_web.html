@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mathieu Argibay</title>
+    <link rel="shortcut icon" href="/img/mayellow.png" type="image/png" />
+    <meta
+      name="description"
+      content="Développeur web passionné, spécialisé en HTML, CSS, JavaScript, PHP et Symfony.
+    Création de sites web performants, responsive, et optimisés ...onible pour des projets de développement front-end et back-end."
+    />
+    <meta
+      name="keywords"
+      content="Développeur web, HTML, CSS, JavaScript, PHP, Symfony, Front-end, Back-end, développement web,
+     sites web responsive, SEO, Angoulême, projets web, création de site, développeur full-stack"
+    />
+
+    <!-- Open Graph Meta Tags -->
+    <meta
+      property="og:title"
+      content="CV - Développeur Web | Mathieu Argibay"
+    />
+    <meta
+      property="og:description"
+      content="Développeur web spécialisé en HTML, CSS, JavaScript, PHP et Symfony. Passionné par la création de sites web performants et optimisés SEO. Consultez mon CV pour découvrir mes compétences en développement front-end et back-end."
+    />
+    <meta
+      property="og:image"
+      content="https://mathieuargibay.vercel.app/img/mayellow.png"
+    />
+    <meta property="og:url" content="https://mathieuargibay.vercel.app/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_FR" />
+
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Lien vers la feuille de style CSS -->
+    <link rel="stylesheet" href="/css/portfolio_web.css" />
+
+    <!-- Importation des polices Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Lien vers Font Awesome pour les icônes -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+
+    <!-- Lien vers animate.css pour les animations -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+    <!-- EmailJS + reCAPTCHA -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  </head>
+  <body>
+    <!-- Checkbox de thème (CSS only) -->
+    <input
+      type="checkbox"
+      id="theme-switch"
+      class="theme-switch"
+      aria-hidden="true"
+    />
+
+    <!-- Bouton visuel pour changer de thème -->
+    <label
+      for="theme-switch"
+      class="theme-toggle"
+      aria-label="Changer le thème"
+    >
+      <span class="icon-moon"><i class="fas fa-moon"></i></span>
+      <span class="icon-sun"><i class="fas fa-sun"></i></span>
+    </label>
+
+    <div class="page">
+      <!-- Fond décoratif -->
+      <!-- <div class="choice-bg-gradient"></div>
+    <div class="choice-bg-grid"></div>
+    <div class="choice-bg-orb orb--left"></div>
+    <div class="choice-bg-orb orb--right"></div> -->
+
+      <header id="header">
+        <div class="logo-main">
+          <img src="/img/mayellow.png" alt="Logo principal" />
+        </div>
+        <h1 class="animate__animated animate__backInDown">Mathieu Argibay</h1>
+        <h2>Développeur Web Full Stack</h2>
+      </header>
+
+      <!-- Menu de navigation -->
+      <nav>
+        <div class="nav-container">
+          <div class="logo">
+            <img src="/img/mayellow.png" alt="Logo" />
+          </div>
+
+          <div class="nav-toggle">
+            <div class="bar"></div>
+          </div>
+
+          <!-- Ancien bouton JS de thème conservé si nécessaire par ton script.js -->
+          <!-- Le vrai fond/transition est géré par la checkbox + label ci-dessus -->
+
+          <ul class="nav-menu">
+            <li><a href="/index.html">Accueil</a></li>
+            <li><a href="#about">À Propos</a></li>
+            <li><a href="#skills">Compétences</a></li>
+            <li><a href="#projects">Projets</a></li>
+            <li><a href="#footer">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <main>
+        <!-- À propos -->
+        <section id="about">
+          <h3>À Propos</h3>
+          <p>
+            Je suis attentif aux détails et j'aime concevoir des interfaces
+            pratiques et harmonieuses.
+          </p>
+          <p>
+            Chaque projet est pour moi l'occasion de trouver l'équilibre entre
+            design et fonctionnalité.
+          </p>
+          <a class="btn-cv" href="#contact" title="Contactez-moi"
+            >Contactez-moi</a
+          >
+          <a
+            class="btn-cv"
+            href="https://mathieuargibay.vercel.app/file/MathieuArgibay.pdf"
+            download
+            target="_blank"
+            title="Télécharger mon CV"
+            >Télécharger mon CV</a
+          >
+        </section>
+
+        <!-- Compétences -->
+        <section id="skills">
+          <h3>Compétences</h3>
+          <div class="skills-grid">
+            <!-- HTML5 & CSS3 -->
+            <article class="skill-card">
+              <div class="skill-front">
+                <div class="dual-icons">
+                  <i class="fab fa-html5 skill-icon"></i>
+                  <i class="fab fa-css3-alt skill-icon"></i>
+                </div>
+                <h4>HTML5 & CSS3</h4>
+              </div>
+              <div class="skill-back">
+                <p>
+                  Structure sémantique et mise en page responsive
+                  (Flexbox/Grid), accessibilité, animations légères.
+                </p>
+              </div>
+            </article>
+
+            <!-- JavaScript -->
+            <article class="skill-card">
+              <div class="skill-front">
+                <i class="fab fa-js-square skill-icon"></i>
+                <h4>JavaScript</h4>
+              </div>
+              <div class="skill-back">
+                <p>
+                  Interactions (menus, modales, éléments dynamiques).
+                  Utilisation ponctuelle de Bootstrap JS.
+                </p>
+              </div>
+            </article>
+
+            <!-- PHP -->
+            <article class="skill-card">
+              <div class="skill-front">
+                <i class="fab fa-php skill-icon"></i>
+                <h4>PHP</h4>
+              </div>
+              <div class="skill-back">
+                <p>
+                  POO, routing, formulaires, sécurité basique et accès aux
+                  données.
+                </p>
+              </div>
+            </article>
+
+            <!-- Symfony -->
+            <article class="skill-card">
+              <div class="skill-front">
+                <i class="fab fa-symfony skill-icon"></i>
+                <h4>Symfony</h4>
+              </div>
+              <div class="skill-back">
+                <p>
+                  Architecture MVC, Doctrine, Twig, validation, organisation
+                  modulaire de projets.
+                </p>
+              </div>
+            </article>
+
+            <!-- WordPress -->
+            <article class="skill-card">
+              <div class="skill-front">
+                <i class="fab fa-wordpress-simple skill-icon"></i>
+                <h4>WordPress</h4>
+              </div>
+              <div class="skill-back">
+                <p>
+                  Sites vitrines (Elementor), formulaires, SMTP, SEO (Rank
+                  Math), réservations (Amelia), perf &amp; sécurité.
+                </p>
+              </div>
+            </article>
+
+            <!-- SQL -->
+            <article class="skill-card">
+              <div class="skill-front">
+                <i class="fas fa-database skill-icon"></i>
+                <h4>SQL</h4>
+              </div>
+              <div class="skill-back">
+                <p>
+                  Modélisation, requêtes et optimisation de bases relationnelles
+                  (SQL/Doctrine).
+                </p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Projets -->
+        <section id="projects">
+          <h3>Projets</h3>
+          <div class="projects-grid">
+            <!-- Projet 1 -->
+            <article class="project-card">
+              <img src="/img/petalescreen/Accueil.png" alt="Projet 1" />
+              <h4>Les Pétales Enchantés</h4>
+              <p>
+                Boutique en ligne moderne avec une interface simple et
+                intuitive.
+              </p>
+              <button class="btn btn-view" data-modal="modal1">
+                Voir le projet
+              </button>
+            </article>
+
+            <!-- Projet 2 -->
+            <article class="project-card">
+              <img src="/img/logscreen/Accueil.png" alt="Projet 2" />
+              <h4>Application d'analyse de log</h4>
+              <p>
+                Application web pour analyser les logs serveurs en temps réel.
+              </p>
+              <button class="btn btn-view" data-modal="modal2">
+                Voir le projet
+              </button>
+            </article>
+
+            <!-- Projet 3 -->
+            <article class="project-card">
+              <img src="/img/codequest/accueil.png" alt="Projet 3" />
+              <h4>CodeQuest</h4>
+              <p>
+                Plateforme de défis de code quotidiens avec gain d'expérience,
+                classement et progression utilisateur.
+              </p>
+              <button class="btn btn-view" disabled data-modal="modal3">
+                Projet en cours
+              </button>
+            </article>
+
+            <!-- Projet 4 -->
+            <article class="project-card project-upcoming">
+              <img src="/img/barbara.png" alt="Projet 4" />
+              <h4>Barbara à vos côtés</h4>
+              <p>
+                Création d’un site vitrine WordPress pour promouvoir les
+                services d’aide à domicile, incluant une page de contact, une
+                présentation des services et un module de réservation.
+              </p>
+              <a
+                href="https://www.barbaraguyot.fr"
+                target="_blank"
+                class="btn btn-view"
+                >Visiter le site</a
+              >
+            </article>
+
+            <!-- Projet à venir (commenté comme dans ton fichier) -->
+            <!--
+          <article class="project-card project-upcoming">
+            <img src="/img/workinprogress.png" alt="Projet à venir">
+            <h4>Projet à venir</h4>
+            <p>Un nouveau projet est en préparation. Disponible prochainement !</p>
+            <button class="btn btn-view" disabled>À venir</button>
+          </article>
+          --></div>
+        </section>
+
+        <!-- Modale du Projet 1 -->
+        <div id="modal1" class="modal">
+          <div class="modal-content">
+            <div class="carousel">
+              <span class="modal-close">&times;</span>
+
+              <div class="carousel-slide active">
+                <video
+                  src="/img/petalescreen/accueil.mp4"
+                  controls
+                  muted
+                ></video>
+                <p class="carousel-caption">
+                  1- Page d'accueil - version mobile
+                </p>
+              </div>
+              <div class="carousel-slide">
+                <video
+                  src="/img/petalescreen/navigation.mp4"
+                  controls
+                  muted
+                ></video>
+                <p class="carousel-caption">2- Navigation - version mobile</p>
+              </div>
+              <div class="carousel-slide">
+                <video
+                  src="/img/petalescreen/connexionpanier.mp4"
+                  controls
+                  muted
+                ></video>
+                <p class="carousel-caption">
+                  3- Connexion et panier - version mobile
+                </p>
+              </div>
+              <div class="carousel-slide">
+                <video
+                  src="/img/petalescreen/validationpanier.mp4"
+                  controls
+                  muted
+                ></video>
+                <p class="carousel-caption">
+                  4- Validation panier - version mobile
+                </p>
+              </div>
+              <div class="carousel-slide">
+                <video
+                  src="/img/petalescreen/profilpanier.mp4"
+                  controls
+                  muted
+                ></video>
+                <p class="carousel-caption">
+                  5- Profil et panier - version mobile
+                </p>
+              </div>
+              <div class="carousel-slide">
+                <video src="/img/petalescreen/admin.mp4" controls muted></video>
+                <p class="carousel-caption">
+                  6- Administration - version mobile
+                </p>
+              </div>
+
+              <button class="carousel-prev">&#10094;</button>
+              <button class="carousel-next">&#10095;</button>
+            </div>
+
+            <div class="modal-caption">Les Pétales Enchantés</div>
+          </div>
+        </div>
+
+        <!-- Modale du Projet 2 -->
+        <div id="modal2" class="modal">
+          <div class="modal-content">
+            <div class="carousel">
+              <span class="modal-close">&times;</span>
+
+              <div class="carousel-slide active">
+                <video src="/img/logscreen/serveur.mp4" controls muted></video>
+                <p class="carousel-caption">1- Graphique serveur</p>
+              </div>
+              <div class="carousel-slide">
+                <video src="/img/logscreen/domaine.mp4" controls muted></video>
+                <p class="carousel-caption">2- Liste des domaines</p>
+              </div>
+              <div class="carousel-slide">
+                <video
+                  src="/img/logscreen/domainegraph.mp4"
+                  controls
+                  muted
+                ></video>
+                <p class="carousel-caption">3- Graphique domaine</p>
+              </div>
+              <div class="carousel-slide">
+                <video src="/img/logscreen/site.mp4" controls muted></video>
+                <p class="carousel-caption">4- Liste des sites</p>
+              </div>
+              <div class="carousel-slide">
+                <video
+                  src="/img/logscreen/adresseip.mp4"
+                  controls
+                  muted
+                ></video>
+                <p class="carousel-caption">5- Liste des adresses ip</p>
+              </div>
+              <div class="carousel-slide">
+                <video
+                  src="/img/logscreen/gestionseuil.mp4"
+                  controls
+                  muted
+                ></video>
+                <p class="carousel-caption">6- Gestion des seuils</p>
+              </div>
+              <div class="carousel-slide">
+                <video src="/img/logscreen/alertes.mp4" controls muted></video>
+                <p class="carousel-caption">
+                  7- Liste des alertes et notifications
+                </p>
+              </div>
+
+              <button class="carousel-prev">&#10094;</button>
+              <button class="carousel-next">&#10095;</button>
+            </div>
+
+            <div class="modal-caption">Log Analyser</div>
+          </div>
+        </div>
+
+        <!-- Contact -->
+        <section id="contact" class="section contact">
+          <h3>Contactez-moi</h3>
+          <form id="contact-form">
+            <input type="text" name="name" placeholder="Votre nom" required />
+            <input
+              type="email"
+              name="email"
+              placeholder="Votre email"
+              required
+            />
+            <textarea
+              name="message"
+              placeholder="Votre message"
+              rows="6"
+              required
+            ></textarea>
+
+            <!-- reCAPTCHA -->
+            <div
+              class="g-recaptcha"
+              data-sitekey="6LdjrA4rAAAAALCzaPx-8zlAnsViTq7YPaVziWG1"
+            ></div>
+
+            <button type="submit">Envoyer</button>
+          </form>
+
+          <p id="form-message"></p>
+        </section>
+      </main>
+
+      <!-- Loader -->
+      <div id="loading-spinner" class="loading-spinner" style="display: none">
+        <div class="circle-container">
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+        </div>
+        <p>Envoi en cours, merci de patienter...</p>
+      </div>
+
+      <!-- Footer -->
+      <div data-footer></div>
+      <script src="/components/footer/footer.js"></script>
+
+      <!-- Bouton "Retour en haut" -->
+      <button id="back-to-top"><i class="fas fa-arrow-up"></i></button>
+    </div>
+    <!-- Script principal -->
+    <script type="text/javascript" src="/script/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,757 @@
+/* =========================
+   Reset
+   ========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* =========================
+   Variables globales (mêmes que portfolio_web)
+   ========================= */
+:root {
+  --color-bg: #05060a;
+  --color-bg-alt: #111322;
+  --color-text: #f4f4f4;
+
+  --color-accent: #ffd700;
+  --color-accent-gradient: linear-gradient(135deg, #6a82fb, #fc5c7d);
+  --color-accent-soft-glow: 0 0 12px rgba(106, 130, 251, 0.55),
+    0 0 18px rgba(252, 92, 125, 0.45);
+
+  --color-accent-contrast: rgba(0, 0, 0, 0.7);
+
+  --color-header-bg: rgba(0, 0, 0, 0.35);
+  --color-card-front: rgba(255, 255, 255, 0.06);
+  --color-card-back: rgba(0, 0, 0, 0.55);
+  --color-footer-bg: rgba(0, 0, 0, 0.85);
+
+  --color-input-border: #ccc;
+  --color-input-focus: #6a82fb;
+
+  --orb-primary-soft: #6a82fb33;
+  --orb-secondary-soft: #fc5c7d33;
+  --orb-inner-bg: #111322;
+  --orb-primary: #6a82fbff;
+  --orb-secondary: #fc5c7dff;
+
+  --shadow-button: 0 6px 18px rgba(0, 0, 0, 0.4);
+  --shadow-button-hover: 0 10px 26px rgba(0, 0, 0, 0.55);
+}
+
+body {
+  font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  min-height: 100vh;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* =========================
+   Checkbox & bouton de thème
+   ========================= */
+
+.theme-switch {
+  position: fixed;
+  left: -9999px;
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 50;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 8px 14px;
+  background: rgba(0, 0, 0, 0.75);
+  color: #f9fafb;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.8);
+  transition: background-color 0.25s ease, box-shadow 0.25s ease,
+    transform 0.25s ease, border-color 0.25s ease;
+}
+
+.theme-toggle i {
+  font-size: 1rem;
+}
+
+/* icônes : lune visible par défaut, soleil caché */
+.theme-toggle .icon-sun {
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.theme-toggle .icon-moon {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* quand on est en light (= checkbox cochée) */
+.theme-switch:checked + .theme-toggle {
+  background: rgba(20, 20, 40, 0.9);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.theme-switch:checked + .theme-toggle .icon-sun {
+  opacity: 1;
+  transform: scale(1);
+}
+.theme-switch:checked + .theme-toggle .icon-moon {
+  opacity: 0;
+  transform: scale(0.6);
+}
+
+.theme-toggle:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.9);
+}
+
+/* =========================
+   Page & background cross-fade
+   ========================= */
+
+.page {
+  position: relative;
+  min-height: 100vh;
+  color: var(--color-text);
+  transition: color 0.35s ease;
+}
+
+/* Deux calques de fond qui cross-fadent :
+   - ::before = thème dark (fond façon portfolio_web)
+   - ::after  = thème light (variante claire)
+*/
+.page::before,
+.page::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+/* Fond dark : fond type choice/portfolio avec grille + orbes */
+.page::before {
+  opacity: 1;
+  background:
+    /* grille presque imperceptible */ linear-gradient(
+      to right,
+      #ffffff03 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, #ffffff03 1px, transparent 1px),
+    /* orbes + fond */
+      radial-gradient(circle at 0% 0%, var(--orb-primary-soft), transparent 60%),
+    radial-gradient(
+      circle at 100% 100%,
+      var(--orb-secondary-soft),
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at 50% 120%,
+      var(--orb-inner-bg),
+      var(--color-bg) 70%
+    );
+  background-size: 40px 40px, 40px 40px, auto, auto, auto;
+  mix-blend-mode: screen;
+}
+
+/* Fond light : même logique mais en version violette claire
+   pour coller au thème clair du portfolio */
+.page::after {
+  opacity: 0;
+  background: linear-gradient(to right, #ffffff05 1px, transparent 1px),
+    linear-gradient(to bottom, #ffffff05 1px, transparent 1px),
+    radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.22), transparent 60%),
+    radial-gradient(
+      circle at 100% 100%,
+      rgba(255, 255, 255, 0.2),
+      transparent 60%
+    ),
+    radial-gradient(circle at 50% 120%, #9a94cc, #7c75b3 70%);
+  background-size: 40px 40px, 40px 40px, auto, auto, auto;
+  mix-blend-mode: screen;
+}
+
+/* Quand on bascule en light : cross-fade des backgrounds */
+.theme-switch:checked ~ .page::before {
+  opacity: 0;
+}
+.theme-switch:checked ~ .page::after {
+  opacity: 1;
+}
+
+/* =========================
+   Transitions globales sur les blocs
+   ========================= */
+
+.page,
+.page * {
+  transition-property: background-color, color, border-color, box-shadow;
+  transition-duration: 0.35s;
+  transition-timing-function: ease;
+}
+
+/* =========================
+   Liens
+   ========================= */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =========================
+   Hero
+   ========================= */
+
+.hero {
+  padding: 80px 20px 60px;
+}
+
+.hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-logo img {
+  height: 140px;
+  width: auto;
+  display: block;
+  margin: 0 auto 20px;
+  filter: drop-shadow(0 0 25px rgba(0, 0, 0, 0.85));
+}
+
+.hero-eyebrow {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #a5b4fc;
+  margin-bottom: 10px;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 4vw, 3.2rem);
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.hero-text {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #e5e7eb;
+}
+
+.hero-actions {
+  margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  justify-content: center;
+}
+
+/* Thème light : texte un peu plus clair */
+.theme-switch:checked ~ .page .hero-text {
+  color: #f4f3ff;
+}
+
+/* =========================
+   Boutons
+   ========================= */
+
+.btn-primary,
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+/* Bouton principal : même logique que les boutons du portfolio */
+.btn-primary {
+  background-image: var(--color-accent-gradient);
+  background-size: 200% 200%;
+  color: var(--color-accent-contrast);
+  box-shadow: var(--shadow-button), var(--color-accent-soft-glow);
+}
+
+.btn-primary:hover {
+  background-image: none;
+  background-color: transparent;
+  color: var(--color-text);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: var(--shadow-button-hover), 0 0 24px rgba(106, 130, 251, 0.6),
+    0 0 28px rgba(252, 92, 125, 0.6);
+  transform: translateY(-2px);
+}
+
+/* Bouton "ghost" : style secondaire mais cohérent */
+.btn-ghost {
+  background-color: rgba(3, 3, 10, 0.8);
+  border-color: rgba(255, 255, 255, 0.18);
+  color: var(--color-text);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+.btn-ghost:hover {
+  background-color: rgba(0, 0, 0, 0.85);
+  color: var(--color-accent);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.65), 0 0 20px rgba(252, 92, 125, 0.55);
+}
+
+/* Ghost en thème clair : fond violet */
+.theme-switch:checked ~ .page .btn-ghost {
+  background-color: #8b84c0;
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #fdfbff;
+}
+
+/* =========================
+   Sections
+   ========================= */
+
+.section {
+  padding: 70px 20px;
+}
+
+/* Dark : fond alt sombre */
+.section-alt {
+  padding: 70px 20px;
+  background-color: var(--color-bg-alt);
+}
+
+/* Light : alt = couleur secondaire du portfolio */
+.theme-switch:checked ~ .page .section-alt {
+  background-color: #8b84c0;
+}
+
+.section-header {
+  max-width: 800px;
+  margin: 0 auto 36px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.1rem;
+  margin-bottom: 14px;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  border-radius: 999px;
+  background-image: var(--color-accent-gradient);
+}
+
+.section-subtitle {
+  font-size: 0.98rem;
+  color: #cbd5f5;
+  line-height: 1.6;
+}
+
+.theme-switch:checked ~ .page .section-subtitle {
+  color: #f0eeff;
+}
+
+/* =========================
+   Grille de cartes
+   ========================= */
+
+.cards-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1.6rem;
+}
+
+@media (min-width: 900px) {
+  .cards-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* =========================
+   Cartes
+   ========================= */
+
+.card {
+  padding: 24px 22px;
+  border-radius: 18px;
+  background-color: var(--color-card-front);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.75);
+  /* backdrop-filter: blur(14px); */
+  /* -webkit-backdrop-filter: blur(14px); */
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.card-soft {
+  background-color: var(--color-card-back);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #e5e7eb;
+}
+
+.card-icon {
+  font-size: 2.2rem;
+  margin-bottom: 18px;
+  color: var(--color-accent);
+  text-shadow: 0 0 10px rgba(106, 130, 251, 0.55),
+    0 0 18px rgba(252, 92, 125, 0.45);
+}
+
+/* Hover */
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 55px rgba(0, 0, 0, 0.9), 0 0 22px rgba(106, 130, 251, 0.35);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+.card:hover .card-icon {
+  filter: drop-shadow(0 0 8px rgba(250, 204, 21, 0.7));
+}
+
+/* Light : cartes violettes type portfolio */
+.theme-switch:checked ~ .page .card {
+  background-color: #9a94cc;
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+}
+
+.theme-switch:checked ~ .page .card-soft {
+  background-color: #8b84c0;
+}
+
+.theme-switch:checked ~ .page .card p {
+  color: #fefefe;
+}
+
+/* =========================
+   Formulaire de contact
+   ========================= */
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 620px;
+  margin: 0 auto;
+  background: rgba(3, 3, 10, 0.8);
+  border-radius: 18px;
+  padding: 24px 20px 26px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.85);
+}
+
+.contact-form button {
+  margin: auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  margin-bottom: 14px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--color-input-border);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--color-text);
+  font-size: 0.96rem;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--color-input-focus);
+  box-shadow: 0 0 12px rgba(106, 130, 251, 0.6);
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.contact-form .g-recaptcha {
+  margin: 5px auto 10px;
+}
+
+/* Light = mêmes violets que portfolio */
+.theme-switch:checked ~ .page .contact-form {
+  background-color: #8b84c0;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.theme-switch:checked ~ .page .contact-form input,
+.theme-switch:checked ~ .page .contact-form textarea {
+  background-color: #9a94cc;
+  border-color: rgba(255, 255, 255, 0.45);
+  color: #fefefe;
+}
+
+/* Message retour */
+.form-message {
+  margin-top: 20px;
+  font-size: 1rem;
+  text-align: center;
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+/* =========================
+   Loader
+   ========================= */
+
+.loading-spinner {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 9999;
+  color: #e5e7eb;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.circle-container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.circle {
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: var(--color-accent-gradient);
+  animation: bounce 0.6s infinite alternate;
+}
+
+.circle:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.circle:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-16px);
+  }
+}
+
+/* =========================
+   Footer
+   ========================= */
+
+#footer {
+  padding: 28px 20px 22px;
+  background-color: #1d1a35;
+  border-top: 1px solid rgba(31, 41, 55, 0.9);
+  color: #9ca3af;
+  font-size: 0.9rem;
+  backdrop-filter: blur(14px);
+}
+
+.footer-content {
+  max-width: 1100px;
+  margin: 0 auto 12px;
+  display: grid;
+  gap: 24px;
+  text-align: center;
+}
+
+.footer-section h3 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #f9fafb;
+}
+
+.footer-section p {
+  margin: 4px 0;
+}
+
+.footer-section p i {
+  margin-right: 6px;
+  text-shadow: 0 0 10px rgba(106, 130, 251, 0.55),
+    0 0 18px rgba(252, 92, 125, 0.45);
+  transition: text-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.footer-section p i:hover {
+  text-shadow: 0 0 18px rgba(106, 130, 251, 0.9),
+    0 0 26px rgba(252, 92, 125, 0.8);
+  transform: translateY(-1px);
+}
+
+.social-icons {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.social-icons a {
+  font-size: 1.4rem;
+  padding: 6px;
+}
+
+.social-icons a:hover {
+  transform: translateY(-2px);
+  color: var(--color-accent);
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+/* Light footer = même couleur que portfolio */
+.theme-switch:checked ~ .page #footer {
+  background-color: #6c669b;
+  border-top-color: rgba(255, 255, 255, 0.3);
+  color: #f3f2ff;
+}
+
+.theme-switch:checked ~ .page #footer .footer-section h3 {
+  color: #ffffff;
+}
+
+/* =========================
+   Bouton "back to top"
+   ========================= */
+
+.back-to-top {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  width: 45px;
+  height: 45px;
+  border-radius: 999px;
+  border: none;
+  background-image: var(--color-accent-gradient);
+  background-size: 200% 200%;
+  color: #ffffff;
+  display: none; /* affiché par JS */
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 14px rgba(106, 130, 251, 0.55);
+  z-index: 20;
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    background-position 0.25s ease, background-color 0.25s ease;
+}
+
+.back-to-top:hover {
+  transform: translateY(-2px);
+  background-image: none;
+  background-color: rgba(0, 0, 0, 0.85);
+  color: var(--color-accent);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.8), 0 0 22px rgba(252, 92, 125, 0.7);
+}
+
+/* =========================
+   Responsive
+   ========================= */
+
+@media (min-width: 900px) {
+  .hero-inner {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.2fr);
+    text-align: left;
+  }
+
+  .hero-logo {
+    text-align: left;
+  }
+
+  .hero-text {
+    margin-left: 0;
+  }
+
+  .hero-actions {
+    justify-content: flex-start;
+  }
+
+  .footer-content {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    text-align: left;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding-top: 60px;
+  }
+
+  .hero-logo img {
+    height: 110px;
+  }
+
+  .section,
+  .section-alt {
+    padding: 60px 16px;
+  }
+
+  .theme-toggle {
+    top: 12px;
+    right: 12px;
+  }
+}

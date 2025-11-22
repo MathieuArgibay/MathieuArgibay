@@ -1,161 +1,371 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Mathieu Argibay - Création Digitale</title>
-    <link rel="shortcut icon" href="/img/mayellow.png" type="image/png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <script type="text/javascript"src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <link rel="shortcut icon" href="/img/mayellow.png" type="image/png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- CSS de la page d'accueil -->
+    <link rel="stylesheet" href="/css/accueil.css" />
+    <link rel="stylesheet" href="/components/footer/footer.css" />
+
+    <!-- Fonts & Icônes -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+
+    <!-- EmailJS + reCAPTCHA (contact) -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-</head>
-<body>
-    <!-- Hero -->
-    <section class="hero">
-        <div class="logo-main">
-            <img src="./img/mayellow.png" alt="Logo">
-        </div>
-        <h1>Développons votre présence digitale</h1>
-        <p>Sites web personnalisés, identité visuelle impactante et stratégies de communication adaptées à vos besoins.</p>
-        <div style="margin-top:40px;">
-            <a class="btn-cv" href="/portfolio/">Mon portfolio</a>
-            <a class="btn-cv" href="#contact">Contactez-moi</a>
-        </div>
-    </section>
+  </head>
+  <body>
+    <!-- Checkbox de thème (CSS only) -->
+    <input
+      type="checkbox"
+      id="theme-switch"
+      class="theme-switch"
+      aria-hidden="true"
+    />
 
-    <!-- Pourquoi travailler avec moi -->
-    <section style="padding:80px 20px;text-align:center;background:rgba(255,255,255,0.03);">
-        <h2 style="font-size:2.5em;margin-bottom:50px;">Pourquoi travailler avec moi ?</h2>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:40px;max-width:1100px;margin:auto;">
-            <div style="padding:30px;">
-                <i class="fas fa-user-tie" style="font-size:3em;color:#FFD700;"></i>
-                <h3>Expertise</h3>
-                <p>Une approche professionnelle alliant design et développement.</p>
+    <!-- Bouton visuel pour changer de thème -->
+    <label
+      for="theme-switch"
+      class="theme-toggle"
+      aria-label="Changer le thème"
+    >
+      <span class="icon-moon"><i class="fas fa-moon"></i></span>
+      <span class="icon-sun"><i class="fas fa-sun"></i></span>
+    </label>
+
+    <!-- CONTENEUR GLOBAL -->
+    <div class="page">
+      <!-- HEADER / HERO -->
+      <header class="hero">
+        <div class="hero-inner">
+          <div class="hero-logo">
+            <img src="./img/mayellow.png" alt="Logo Mathieu Argibay" />
+          </div>
+          <div class="hero-content">
+            <p class="hero-eyebrow">Développeur web & création digitale</p>
+            <h1>Développons votre présence digitale</h1>
+            <p class="hero-text">
+              Sites web personnalisés, identité visuelle impactante et
+              stratégies de communication adaptées à vos besoins.
+            </p>
+            <div class="hero-actions">
+              <a class="btn-primary" href="/portfolio/choice.html">
+                Découvrir mon portfolio
+              </a>
+              <a class="btn-ghost" href="#contact"> Me contacter </a>
             </div>
-            <div style="padding:30px;">
-                <i class="fas fa-rocket" style="font-size:3em;color:#FFD700;"></i>
-                <h3>Performance</h3>
-                <p>Des solutions rapides, modernes et adaptées à vos objectifs.</p>
-            </div>
-            <div style="padding:30px;">
-                <i class="fas fa-handshake" style="font-size:3em;color:#FFD700;"></i>
-                <h3>Accompagnement</h3>
-                <p>Un suivi personnalisé de la conception à la mise en ligne.</p>
-            </div>
+          </div>
         </div>
-    </section>
+      </header>
 
-    <!-- Sites web personnalisés -->
-    <section style="padding:80px 20px;text-align:center;">
-        <h2 style="font-size:2.5em;margin-bottom:50px;">Sites Web Personnalisés</h2>
-        <p style="max-width:800px;margin:0 auto 40px;">Je conçois des sites web entièrement personnalisés, pensés pour refléter votre image et atteindre vos objectifs.</p>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;max-width:1100px;margin:auto;">
-            <div style="background:rgba(255,255,255,0.05);padding:30px;border-radius:10px;">
-                <h3>Site vitrine</h3>
-                <p>Présentez votre activité grâce à un site élégant et rapide, parfaitement adapté aux petites entreprises et indépendants.</p>
-            </div>
-            <div style="background:rgba(255,255,255,0.05);padding:30px;border-radius:10px;">
-                <h3>E‑commerce</h3>
-                <p>Créez une boutique en ligne moderne avec paiement sécurisé et gestion facile de vos produits et commandes.</p>
-            </div>
-            <div style="background:rgba(255,255,255,0.05);padding:30px;border-radius:10px;">
-                <h3>Refonte & optimisation</h3>
-                <p>Modernisez votre site existant, améliorez ses performances et optimisez l'expérience utilisateur.</p>
-            </div>
-        </div>
-    </section>
+      <main>
+        <!-- Pourquoi travailler avec moi ? -->
+        <section class="section section-alt">
+          <div class="section-header">
+            <h2 class="section-title">Pourquoi travailler avec moi&nbsp;?</h2>
+            <p class="section-subtitle">
+              Un accompagnement sérieux, humain et orienté résultats pour vos
+              projets digitaux.
+            </p>
+          </div>
 
-    <!-- Identité visuelle -->
-    <section style="padding:80px 20px;text-align:center;background:rgba(255,255,255,0.03);">
-        <h2 style="font-size:2.5em;margin-bottom:50px;">Identité Visuelle</h2>
-        <p style="max-width:800px;margin:0 auto 40px;">Je construis une identité visuelle cohérente et forte pour votre marque afin de marquer les esprits.</p>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;max-width:1100px;margin:auto;">
-            <div style="background:rgba(255,255,255,0.05);padding:30px;border-radius:10px;">
-                <h3>Logos sur mesure</h3>
-                <p>Des logos uniques et adaptés à votre image, conçus pour vous différencier.</p>
-            </div>
-            <div style="background:rgba(255,255,255,0.05);padding:30px;border-radius:10px;">
-                <h3>Charte graphique</h3>
-                <p>Définissez les couleurs, typographies et visuels qui rendront votre communication homogène.</p>
-            </div>
-            <div style="background:rgba(255,255,255,0.05);padding:30px;border-radius:10px;">
-                <h3>Supports de communication</h3>
-                <p>Création de cartes de visite, flyers et autres supports imprimés ou digitaux pour renforcer votre visibilité.</p>
-            </div>
-        </div>
-    </section>
+          <div class="cards-grid">
+            <article class="card card-soft">
+              <div class="card-icon">
+                <i class="fas fa-user-tie"></i>
+              </div>
+              <h3>Expertise</h3>
+              <p>
+                Une approche professionnelle alliant design, développement web
+                et sens du détail pour des projets cohérents.
+              </p>
+            </article>
 
-    <!-- Communication digitale -->
-    <section style="padding:80px 20px;text-align:center;">
-        <h2 style="font-size:2.5em;margin-bottom:50px;">Communication Digitale</h2>
-        <p style="max-width:800px;margin:0 auto 40px;">Améliorez votre visibilité grâce à des stratégies digitales adaptées et des conseils personnalisés.</p>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;max-width:1100px;margin:auto;">
-            <div style="background:rgba(255,255,255,0.05);padding:30px;border-radius:10px;">
-                <h3>Stratégies réseaux sociaux</h3>
-                <p>Développez votre audience et engagez votre communauté avec des contenus adaptés.</p>
-            </div>
-            <div style="background:rgba(255,255,255,0.05);padding:30px;border-radius:10px;">
-                <h3>SEO</h3>
-                <p>Optimisez votre site pour améliorer son positionnement dans les moteurs de recherche.</p>
-            </div>
-            <div style="background:rgba(255,255,255,0.05);padding:30px;border-radius:10px;">
-                <h3>Conseils personnalisés</h3>
-                <p>Bénéficiez d’un accompagnement sur mesure pour renforcer votre présence en ligne.</p>
-            </div>
-        </div>
-    </section>
+            <article class="card card-soft">
+              <div class="card-icon">
+                <i class="fas fa-rocket"></i>
+              </div>
+              <h3>Performance</h3>
+              <p>
+                Des sites rapides, modernes et pensés pour vos objectifs :
+                visibilité, crédibilité, conversions.
+              </p>
+            </article>
 
-    <!-- Contact -->
-    <section id="contact" style="padding:80px 20px;text-align:center;background:rgba(255,255,255,0.03);">
-        <h2 style="font-size:2.5em;margin-bottom:50px;">Contactez-moi</h2>
-        <p style="max-width:600px;margin:10px auto 40px;">Prêt à donner vie à votre projet ?<br>Remplissez le formulaire ci-dessous et discutons-en.</p>
-        <form id="contact-form">
-            <input type="text" name="name" placeholder="Votre nom" required>
-            <input type="email" name="email" placeholder="Votre email" required>
-            <textarea name="message" placeholder="Votre message" rows="6" required></textarea>
-            <!-- Le widget reCAPTCHA -->
-            <div class="g-recaptcha" data-sitekey="6LdjrA4rAAAAALCzaPx-8zlAnsViTq7YPaVziWG1"></div>
-            <button type="submit">Envoyer</button>
-        </form>
-        <p id="form-message"></p>
-    </section>
+            <article class="card card-soft">
+              <div class="card-icon">
+                <i class="fas fa-handshake"></i>
+              </div>
+              <h3>Accompagnement</h3>
+              <p>
+                Un échange clair à chaque étape, de l’idée à la mise en ligne,
+                avec un langage compréhensible et transparent.
+              </p>
+            </article>
+          </div>
+        </section>
 
-    <!-- Loader -->
-    <div id="loading-spinner" class="loading-spinner" style="display: none;">
+        <!-- Sites web personnalisés -->
+        <section class="section">
+          <div class="section-header">
+            <h2 class="section-title">Sites Web Personnalisés</h2>
+            <p class="section-subtitle">
+              Des sites conçus sur mesure pour refléter votre image et servir
+              vos objectifs concrets.
+            </p>
+          </div>
+
+          <div class="cards-grid">
+            <article class="card">
+              <h3>Site vitrine</h3>
+              <p>
+                Présentez votre activité avec un site élégant, clair et
+                responsive, idéal pour les petites structures et indépendants.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>E-commerce</h3>
+              <p>
+                Mettez en place une boutique en ligne moderne avec paiement
+                sécurisé et gestion simple de vos produits.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>Refonte &amp; optimisation</h3>
+              <p>
+                Modernisez un site existant, améliorez ses performances et
+                l’expérience de vos visiteurs.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <!-- Identité visuelle -->
+        <section class="section section-alt">
+          <div class="section-header">
+            <h2 class="section-title">Identité Visuelle</h2>
+            <p class="section-subtitle">
+              Une image claire, cohérente et mémorable pour votre activité.
+            </p>
+          </div>
+
+          <div class="cards-grid">
+            <article class="card">
+              <h3>Logos sur mesure</h3>
+              <p>
+                Création de logos uniques, adaptés à votre positionnement et à
+                vos valeurs.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>Charte graphique</h3>
+              <p>
+                Palette de couleurs, typographies et usages visuels pour
+                harmoniser toute votre communication.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>Supports de communication</h3>
+              <p>
+                Cartes de visite, flyers, visuels web et réseaux sociaux pour
+                renforcer votre présence.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <!-- Communication digitale -->
+        <section class="section">
+          <div class="section-header">
+            <h2 class="section-title">Communication Digitale</h2>
+            <p class="section-subtitle">
+              Vous aider à être visible, compréhensible et crédible en ligne.
+            </p>
+          </div>
+
+          <div class="cards-grid">
+            <article class="card">
+              <h3>Stratégies réseaux sociaux</h3>
+              <p>
+                Conseils sur les contenus, formats et rythmes de publication
+                pour développer votre présence.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>SEO</h3>
+              <p>
+                Optimisations techniques et éditoriales pour améliorer votre
+                positionnement dans les moteurs de recherche.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>Conseils personnalisés</h3>
+              <p>
+                Un accompagnement sur mesure selon votre niveau, vos contraintes
+                et vos objectifs.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <!-- Montage vidéo -->
+        <section class="section section-alt">
+          <div class="section-header">
+            <h2 class="section-title">Montage vidéo &amp; Contenu</h2>
+            <p class="section-subtitle">
+              Donner du rythme et du style à vos vidéos pour mettre en valeur
+              votre activité sur le web et les réseaux sociaux.
+            </p>
+          </div>
+
+          <div class="cards-grid">
+            <article class="card">
+              <div class="card-icon">
+                <i class="fas fa-film"></i>
+              </div>
+              <h3>Vidéos promotionnelles</h3>
+              <p>
+                Montages courts et percutants pour présenter vos services, votre
+                entreprise ou un évènement de façon claire et dynamique.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="card-icon">
+                <i class="fas fa-clapperboard"></i>
+              </div>
+              <h3>Contenus pour réseaux sociaux</h3>
+              <p>
+                Formats adaptés à Instagram, Facebook, TikTok ou YouTube&nbsp;:
+                hooks, sous-titres lisibles, rythme optimisé pour retenir
+                l’attention.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="card-icon">
+                <i class="fas fa-wave-square"></i>
+              </div>
+              <h3>Accompagnement créatif</h3>
+              <p>
+                Aide au script, conseils sur les prises de vue et propositions
+                de formats pour construire une ligne de contenu cohérente sur la
+                durée.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="section">
+          <div class="section-header">
+            <h2 class="section-title">Contactez-moi</h2>
+            <p class="section-subtitle">
+              Prêt à discuter de votre projet&nbsp;?<br />Expliquez-moi vos
+              besoins, je vous répondrai rapidement.
+            </p>
+          </div>
+
+          <form id="contact-form" class="contact-form">
+            <input type="text" name="name" placeholder="Votre nom" required />
+            <input
+              type="email"
+              name="email"
+              placeholder="Votre email"
+              required
+            />
+            <textarea
+              name="message"
+              placeholder="Votre message"
+              rows="6"
+              required
+            ></textarea>
+
+            <!-- reCAPTCHA -->
+            <div
+              class="g-recaptcha"
+              data-sitekey="6LdjrA4rAAAAALCzaPx-8zlAnsViTq7YPaVziWG1"
+            ></div>
+
+            <button type="submit" class="btn-primary">Envoyer</button>
+          </form>
+
+          <p id="form-message" class="form-message"></p>
+        </section>
+      </main>
+
+      <!-- Loader -->
+      <div id="loading-spinner" class="loading-spinner" style="display: none">
         <div class="circle-container">
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
         </div>
         <p>Envoi en cours, merci de patienter...</p>
-    </div>
+      </div>
 
-    <!-- Footer -->
-    <footer id="footer">
+      <!-- FOOTER -->
+      <footer id="footer">
         <div class="footer-content">
-            <div class="footer-section">
-                <h3>Contactez-moi</h3>
-                <p><i class="fas fa-envelope"></i> argibay.mathieu@gmail.com</p>
-                <p><i class="fas fa-phone"></i> 06.43.03.19.62</p>
-                <p><i class="fas fa-map-marker-alt"></i> Saint-Claud 16450, France</p>
+          <div class="footer-section">
+            <h3>Contactez-moi</h3>
+            <p><i class="fas fa-envelope"></i> argibay.mathieu@gmail.com</p>
+            <p><i class="fas fa-phone"></i> 06.43.03.19.62</p>
+            <p>
+              <i class="fas fa-map-marker-alt"></i> Saint-Claud 16450, France
+            </p>
+          </div>
+          <div class="footer-section">
+            <h3>Suivez-moi</h3>
+            <div class="social-icons">
+              <a
+                href="https://www.linkedin.com/in/mathieu-argibay7895123/"
+                target="_blank"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+              <a href="https://github.com/MathieuArgibay" target="_blank"
+                ><i class="fab fa-github"></i
+              ></a>
+              <a
+                href="https://mathieuargibay.vercel.app/file/MathieuArgibay.pdf"
+                download
+                target="_blank"
+                ><i class="fas fa-file-alt"></i
+              ></a>
             </div>
-            <div class="footer-section">
-                <h3>Suivez-moi</h3>
-                <div class="social-icons">
-                    <a href="https://www.linkedin.com/in/mathieu-argibay7895123/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/MathieuArgibay" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://mathieuargibay.vercel.app/file/MathieuArgibay.pdf" download target="_blank"><i class="fas fa-file-alt"></i></a>
-                </div>
-            </div>
+          </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Mathieu Argibay. Tous droits réservés.</p>
+          <p>&copy; 2024 Mathieu Argibay. Tous droits réservés.</p>
         </div>
-    </footer>
+      </footer>
 
-    <button id="back-to-top"><i class="fas fa-arrow-up"></i></button>
-    <script type="text/javascript" src="script.js"></script>
-</body>
+      <!-- Bouton retour haut -->
+      <button id="back-to-top" class="back-to-top" aria-label="Revenir en haut">
+        <i class="fas fa-arrow-up"></i>
+      </button>
+    </div>
+
+    <!-- JS existant (email, back-to-top, etc.) -->
+    <script src="/script/script.js"></script>
+  </body>
 </html>

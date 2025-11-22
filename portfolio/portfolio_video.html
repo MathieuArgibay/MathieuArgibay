@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Portfolio vidéo – Mathieu Argibay</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/img/mayellow.png" type="image/png" />
+    <!-- Lien vers Font Awesome pour les icônes -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+
+    <!-- Police identique -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- EmailJS + reCAPTCHA comme sur portfolio2 -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <link rel="stylesheet" href="/css/portfolio_video.css" />
+  </head>
+
+  <body>
+    <!-- Bouton retour -->
+    <a href="/index.html" class="back-home-btn">Retour à l’accueil</a>
+
+    <!-- Fond inspiré de choice.html -->
+    <div class="choice-bg-gradient"></div>
+    <div class="choice-bg-grid"></div>
+    <div class="choice-bg-orb orb--left"></div>
+    <div class="choice-bg-orb orb--right"></div>
+
+    <main class="video-page">
+      <!-- HERO -->
+      <header class="video-hero">
+        <p class="video-hero-label">Portfolio vidéo</p>
+        <h1 class="video-title">
+          Donne vie à tes
+          <span>histoires en mouvement</span>
+        </h1>
+        <p class="video-subtitle">
+          Montage de contenus courts pour les réseaux, vidéos YouTube,
+          storytelling et projets clients. Un univers fluide et dynamique fait
+          pour capter l’attention.
+        </p>
+
+        <div class="video-hero-meta">
+          <div class="meta-item">
+            <span class="meta-label">Formats</span>
+            <span class="meta-value">Reels, Shorts, YouTube, clips promo</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Services</span>
+            <span class="meta-value">Montage, habillage, sous-titres</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- FILTRES JS -->
+      <section class="video-filters">
+        <button class="filter-btn filter-btn--active" data-filter="all">
+          Tous
+        </button>
+        <button class="filter-btn" data-filter="short">Contenus courts</button>
+        <button class="filter-btn" data-filter="long">
+          Longs formats / YouTube
+        </button>
+        <button class="filter-btn" data-filter="client">Projets clients</button>
+      </section>
+
+      <!-- GRILLE VIDÉOS -->
+      <section class="video-grid" aria-label="Projets vidéo">
+        <template>
+          <!-- CARD 1 -->
+          <article class="video-card video-card--short" data-category="short">
+            <div class="video-thumb-wrapper">
+              <div class="video-thumb">
+                <img src="/img/barbara.png" alt="Reel dynamique" />
+                <div class="video-thumb-overlay">
+                  <span class="play-icon">▶</span>
+                </div>
+              </div>
+              <div class="video-duration">0:27</div>
+              <span class="video-tag">Contenu court</span>
+            </div>
+
+            <div class="video-card-body">
+              <h2 class="video-card-title">Reel dynamique</h2>
+              <p class="video-card-text">
+                Cuts rapides, petits zooms, rythme efficace pour les réseaux.
+              </p>
+
+              <ul class="video-card-meta-list">
+                <li>Habillage graphique</li>
+                <li>Optimisé TikTok / Instagram</li>
+              </ul>
+
+              <div class="video-card-actions">
+                <a href="#" class="video-btn video-btn--primary"
+                  >Voir la vidéo</a
+                >
+                <a href="#" class="video-btn video-btn--ghost">Détails</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 2 -->
+          <article class="video-card video-card--client" data-category="client">
+            <div class="video-thumb-wrapper">
+              <div class="video-thumb">
+                <img src="/img/fleurs.png" alt="Présentation client" />
+                <div class="video-thumb-overlay">
+                  <span class="play-icon">▶</span>
+                </div>
+              </div>
+              <div class="video-duration">1:42</div>
+              <span class="video-tag video-tag--pink">Client</span>
+            </div>
+
+            <div class="video-card-body">
+              <h2 class="video-card-title">Vidéo de présentation</h2>
+              <p class="video-card-text">
+                Storytelling simple, transitions propres, identité cohérente.
+              </p>
+
+              <ul class="video-card-meta-list">
+                <li>Fil conducteur</li>
+                <li>Habillage cohérent</li>
+              </ul>
+
+              <div class="video-card-actions">
+                <a href="#" class="video-btn video-btn--primary"
+                  >Voir la vidéo</a
+                >
+                <a href="#" class="video-btn video-btn--ghost">Détails</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 3 -->
+          <article class="video-card video-card--long" data-category="long">
+            <div class="video-thumb-wrapper">
+              <div class="video-thumb">
+                <img src="/img/codequest/accueil.png" alt="YouTube montage" />
+                <div class="video-thumb-overlay">
+                  <span class="play-icon">▶</span>
+                </div>
+              </div>
+              <div class="video-duration">8:13</div>
+              <span class="video-tag video-tag--blue">YouTube</span>
+            </div>
+
+            <div class="video-card-body">
+              <h2 class="video-card-title">Vidéo YouTube chapitrée</h2>
+              <p class="video-card-text">
+                Découpes, b-roll, narratif propre et lisible.
+              </p>
+
+              <ul class="video-card-meta-list">
+                <li>Montage long</li>
+                <li>B-roll + sous-titres</li>
+              </ul>
+
+              <div class="video-card-actions">
+                <a href="#" class="video-btn video-btn--primary"
+                  >Voir la vidéo</a
+                >
+                <a href="#" class="video-btn video-btn--ghost">Détails</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 4 -->
+          <article class="video-card video-card--short" data-category="short">
+            <div class="video-thumb-wrapper">
+              <div class="video-thumb">
+                <img src="/img/logscreen/Accueil.png" alt="Short sous-titres" />
+                <div class="video-thumb-overlay">
+                  <span class="play-icon">▶</span>
+                </div>
+              </div>
+              <div class="video-duration">0:35</div>
+              <span class="video-tag">Contenu court</span>
+            </div>
+
+            <div class="video-card-body">
+              <h2 class="video-card-title">Short avec sous-titres</h2>
+              <p class="video-card-text">
+                Punchlines, mots clés mis en valeur, transitions rapides.
+              </p>
+
+              <ul class="video-card-meta-list">
+                <li>Sous-titres dynamiques</li>
+                <li>Optimisé mobile</li>
+              </ul>
+
+              <div class="video-card-actions">
+                <a href="#" class="video-btn video-btn--primary"
+                  >Voir la vidéo</a
+                >
+                <a href="#" class="video-btn video-btn--ghost">Détails</a>
+              </div>
+            </div>
+          </article>
+        </template>
+
+        <!-- CARD – Histoire du drapeau français -->
+        <article class="video-card video-card--long" data-category="long">
+          <div class="video-thumb-wrapper">
+            <div class="video-thumb">
+              <img
+                src="/img/MiniatureDrapeauFr2.png"
+                alt="Histoire du drapeau français"
+              />
+              <div class="video-thumb-overlay">
+                <span class="play-icon">▶</span>
+              </div>
+            </div>
+            <div class="video-duration">2:05</div>
+            <span class="video-tag video-tag--blue">YouTube</span>
+          </div>
+
+          <div class="video-card-body">
+            <h2 class="video-card-title">Histoire du drapeau français</h2>
+            <p class="video-card-text">
+              Un court documentaire expliquant l’évolution du drapeau tricolore
+              : de l’Oriflamme à la Révolution française jusqu’au drapeau
+              moderne.
+            </p>
+
+            <ul class="video-card-meta-list">
+              <li>Documentaire</li>
+              <li>Historique</li>
+              <li>Montage narratif</li>
+            </ul>
+
+            <div class="video-card-actions">
+              <button
+                class="video-btn video-btn--primary open-video"
+                data-video="https://www.youtube.com/embed/PAd7KIk2Yfc"
+              >
+                Voir la vidéo
+              </button>
+              <a
+                href="https://www.youtube.com/watch?v=PAd7KIk2Yfc"
+                target="_blank"
+                class="video-btn video-btn--ghost"
+              >
+                YouTube
+              </a>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- SECTION CONTACT : même logique que portfolio2 -->
+      <section id="contact" class="video-contact section contact">
+        <div class="video-contact-header">
+          <p class="video-contact-label">Contact</p>
+          <h2 class="video-contact-title">
+            Parlons de ton projet <span>vidéo</span>
+          </h2>
+          <p class="video-contact-text">
+            Tu as une idée de contenu, un besoin de montage ou un projet client
+            ? Envoie-moi un message et on voit ensemble comment le mettre en
+            images.
+          </p>
+        </div>
+
+        <div class="video-contact-form-wrapper">
+          <h3>Contactez-moi</h3>
+          <form id="contact-form">
+            <input type="text" name="name" placeholder="Votre nom" required />
+            <input
+              type="email"
+              name="email"
+              placeholder="Votre email"
+              required
+            />
+            <textarea
+              name="message"
+              placeholder="Votre message"
+              rows="6"
+              required
+            ></textarea>
+
+            <!-- reCAPTCHA identique -->
+            <div
+              class="g-recaptcha"
+              data-sitekey="6LdjrA4rAAAAALCzaPx-8zlAnsViTq7YPaVziWG1"
+            ></div>
+
+            <button type="submit" class="video-btn video-btn--primary">
+              Envoyer
+            </button>
+          </form>
+          <p id="form-message"></p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Loader comme sur portfolio2 -->
+    <div id="loading-spinner" class="loading-spinner" style="display: none">
+      <div class="circle-container">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+      </div>
+      <p>Envoi en cours, merci de patienter...</p>
+    </div>
+
+    <div data-footer></div>
+
+    <!-- MODAL VIDEO -->
+    <div id="video-modal" class="video-modal">
+      <div class="video-modal-content">
+        <span class="video-modal-close">&times;</span>
+        <iframe
+          id="video-modal-iframe"
+          src=""
+          frameborder="0"
+          allow="autoplay; encrypted-media"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+
+    <script src="/components/footer/footer.js"></script>
+    <!-- Filtres vidéos -->
+    <script src="/script/portfolio_video.js"></script>
+    <!-- Même script global que portfolio2 (EmailJS, etc.) -->
+    <script type="text/javascript" src="/script/script.js"></script>
+  </body>
+</html>

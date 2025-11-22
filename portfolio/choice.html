@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Choisis ton univers – Mathieu Argibay</title>
+     <link rel="shortcut icon" href="/img/mayellow.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Importation des polices Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Lien vers Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!-- Style global du site -->
+    <link rel="stylesheet" href="/css/style.css" />
+    <!-- Style spécifique à la page de choix -->
+    <link rel="stylesheet" href="/css/choice.css" />
+  </head>
+  <body>
+    <!-- Header marque / logo -->
+    <div class="nav-container">
+      <div class="logo show"><img src="/img/mayellow.png" alt="Logo" /></div>
+
+    </div>
+      <a href="/index.html" class="back-home-btn">← Retour à l’accueil</a>
+
+    <div class="choice-page">
+      <!-- Fond décoratif -->
+      <div class="choice-bg-gradient"></div>
+      <div class="choice-bg-grid"></div>
+      <div class="choice-bg-orb orb--left"></div>
+      <div class="choice-bg-orb orb--right"></div>
+
+      <!-- Intro -->
+      <section class="choice-hero">
+        <div class="choice-hero-label">// portfolio</div>
+        <h1 class="choice-title">
+          Deux univers,<br />
+          <span>une même signature</span>
+        </h1>
+        <p class="choice-subtitle">
+          Développement web &amp; montage vidéo réunis dans un même portfolio.
+          Choisis l’univers que tu veux explorer en premier.
+        </p>
+      </section>
+
+      <!-- Deux univers -->
+      <section class="choice-universes">
+        <!-- Univers Web -->
+        <a href="/portfolio/portfolio_web.html" class="universe universe--web">
+          <div class="universe-inner">
+            <div class="universe-header">
+              <span class="universe-pill">Univers web</span>
+              <span class="universe-mini">// code &amp; interface</span>
+            </div>
+
+            <h2 class="universe-title">Portfolio Web</h2>
+            <p class="universe-text">
+              Sites vitrines, interfaces sur-mesure, UX soignée et intégration
+              pixel-perfect. Idéal pour voir ma façon de penser un produit de A
+              à Z.
+            </p>
+
+            <ul class="universe-tags">
+              <li>HTML / CSS / JS</li>
+              <li>Symfony / PHP</li>
+              <li>UI / UX</li>
+            </ul>
+
+            <div class="universe-cta">
+              <span class="universe-icon">💻</span>
+              <span class="universe-link-label">
+                Entrer dans le portfolio web
+              </span>
+            </div>
+          </div>
+
+          <div class="universe-visual">
+            <div class="visual-layer visual-layer--code"></div>
+
+            <div class="visual-card visual-card--web">
+              <div class="visual-card-inner visual-card-inner--browser">
+                <div class="visual-browser-bar">
+                  <span></span><span></span><span></span>
+                </div>
+                <div class="visual-browser-body">
+                  <!-- 🔁 Remplace l’image par un vrai screen de projet web -->
+                  <img
+                    src="/img/barbara.png"
+                    alt="Aperçu d'un site web développé par Mathieu Argibay"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="visual-floating-chip visual-floating-chip--web">
+              &lt;/&gt; Front-end &amp; logique
+            </div>
+          </div>
+        </a>
+
+        <!-- Univers Vidéo -->
+        <a href="/portfolio/portfolio_video.html" class="universe universe--video">
+          <div class="universe-inner">
+            <div class="universe-header">
+              <span class="universe-pill universe-pill--pink"
+                >Univers vidéo</span
+              >
+              <span class="universe-mini">// rythme &amp; storytelling</span>
+            </div>
+
+            <h2 class="universe-title">Portfolio Vidéo</h2>
+            <p class="universe-text">
+              Montages dynamiques, habillages, shorts &amp; reels pensés pour
+              les réseaux. Rythme, lisibilité et narration au service du
+              message.
+            </p>
+
+            <ul class="universe-tags">
+              <li>Montage &amp; cut</li>
+              <li>Habillage / titrage</li>
+              <li>Contenus courts</li>
+            </ul>
+
+            <div class="universe-cta">
+              <span class="universe-icon">🎬</span>
+              <span class="universe-link-label">
+                Entrer dans le portfolio vidéo
+              </span>
+            </div>
+          </div>
+
+          <div class="universe-visual">
+            <div class="visual-layer visual-layer--timeline"></div>
+
+            <div class="visual-card visual-card--video">
+              <div class="visual-card-inner visual-card-inner--video">
+                <div class="visual-video-thumb">
+                  <!-- 🔁 Remplace l’image par un screen de timeline / vidéo -->
+                  <img
+                    src="/img/petalescreen/Accueil.png"
+                    alt="Aperçu de montage vidéo"
+                  />
+                  <div class="visual-play">
+                    <span>▶</span>
+                  </div>
+                </div>
+                <div class="visual-timeline-bars">
+                  <span></span><span></span><span></span><span></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="visual-floating-chip visual-floating-chip--video">
+              Storytelling &amp; rythme
+            </div>
+          </div>
+        </a>
+      </section>
+    </div
+
+        <!-- Footer -->
+  <div data-footer></div>
+  <script src="/components/footer/footer.js"></script>
+
+  </body>
+  <script src="script.js"></script>
+  </html>
