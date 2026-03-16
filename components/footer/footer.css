@@ -71,7 +71,9 @@
   color: #f9fafb;
   font-size: 1.6rem;
   padding: 6px;
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 #footer .social-icons a:hover {
@@ -92,6 +94,20 @@
   margin: 0;
   font-size: 0.9rem;
   color: #9ca3af;
+}
+
+.footer-legal {
+  margin-top: 8px;
+}
+
+.footer-legal a {
+  color: #9ca3af;
+  font-size: 0.8rem;
+  margin: 0 6px;
+}
+
+.footer-legal a:hover {
+  color: var(--color-accent);
 }
 
 /* Un petit ajustement responsive si besoin */
