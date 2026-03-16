@@ -23,8 +23,8 @@ html {
 
   --color-accent: #ffd700;
   --color-accent-gradient: linear-gradient(135deg, #6a82fb, #fc5c7d);
-  --color-accent-soft-glow: 0 0 12px rgba(106, 130, 251, 0.55),
-    0 0 18px rgba(252, 92, 125, 0.45);
+  --color-accent-soft-glow:
+    0 0 12px rgba(106, 130, 251, 0.55), 0 0 18px rgba(252, 92, 125, 0.45);
 
   --color-accent-contrast: rgba(0, 0, 0, 0.7);
 
@@ -47,8 +47,13 @@ html {
 }
 
 body {
-  font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
+  font-family:
+    "Montserrat",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
   min-height: 100vh;
   background-color: var(--color-bg);
   color: var(--color-text);
@@ -80,8 +85,11 @@ body {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 10px 22px rgba(0, 0, 0, 0.8);
-  transition: background-color 0.25s ease, box-shadow 0.25s ease,
-    transform 0.25s ease, border-color 0.25s ease;
+  transition:
+    background-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease,
+    border-color 0.25s ease;
 }
 
 .theme-toggle i {
@@ -92,12 +100,16 @@ body {
 .theme-toggle .icon-sun {
   opacity: 0;
   transform: scale(0.6);
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
 }
 .theme-toggle .icon-moon {
   opacity: 1;
   transform: scale(1);
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
 }
 
 /* quand on est en light (= checkbox cochée) */
@@ -149,14 +161,11 @@ body {
 .page::before {
   opacity: 1;
   background:
-    /* grille presque imperceptible */ linear-gradient(
-      to right,
-      #ffffff03 1px,
-      transparent 1px
-    ),
+    /* grille presque imperceptible */
+    linear-gradient(to right, #ffffff03 1px, transparent 1px),
     linear-gradient(to bottom, #ffffff03 1px, transparent 1px),
     /* orbes + fond */
-      radial-gradient(circle at 0% 0%, var(--orb-primary-soft), transparent 60%),
+    radial-gradient(circle at 0% 0%, var(--orb-primary-soft), transparent 60%),
     radial-gradient(
       circle at 100% 100%,
       var(--orb-secondary-soft),
@@ -167,7 +176,12 @@ body {
       var(--orb-inner-bg),
       var(--color-bg) 70%
     );
-  background-size: 40px 40px, 40px 40px, auto, auto, auto;
+  background-size:
+    40px 40px,
+    40px 40px,
+    auto,
+    auto,
+    auto;
   mix-blend-mode: screen;
 }
 
@@ -175,16 +189,26 @@ body {
    pour coller au thème clair du portfolio */
 .page::after {
   opacity: 0;
-  background: linear-gradient(to right, #ffffff05 1px, transparent 1px),
+  background:
+    linear-gradient(to right, #ffffff05 1px, transparent 1px),
     linear-gradient(to bottom, #ffffff05 1px, transparent 1px),
-    radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.22), transparent 60%),
+    radial-gradient(
+      circle at 0% 0%,
+      rgba(255, 255, 255, 0.22),
+      transparent 60%
+    ),
     radial-gradient(
       circle at 100% 100%,
       rgba(255, 255, 255, 0.2),
       transparent 60%
     ),
     radial-gradient(circle at 50% 120%, #9a94cc, #7c75b3 70%);
-  background-size: 40px 40px, 40px 40px, auto, auto, auto;
+  background-size:
+    40px 40px,
+    40px 40px,
+    auto,
+    auto,
+    auto;
   mix-blend-mode: screen;
 }
 
@@ -306,7 +330,9 @@ a {
   background-color: transparent;
   color: var(--color-text);
   border-color: rgba(255, 255, 255, 0.5);
-  box-shadow: var(--shadow-button-hover), 0 0 24px rgba(106, 130, 251, 0.6),
+  box-shadow:
+    var(--shadow-button-hover),
+    0 0 24px rgba(106, 130, 251, 0.6),
     0 0 28px rgba(252, 92, 125, 0.6);
   transform: translateY(-2px);
 }
@@ -324,7 +350,9 @@ a {
   color: var(--color-accent);
   border-color: rgba(255, 255, 255, 0.4);
   transform: translateY(-2px);
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.65), 0 0 20px rgba(252, 92, 125, 0.55);
+  box-shadow:
+    0 10px 26px rgba(0, 0, 0, 0.65),
+    0 0 20px rgba(252, 92, 125, 0.55);
 }
 
 /* Ghost en thème clair : fond violet */
@@ -441,14 +469,17 @@ a {
   font-size: 2.2rem;
   margin-bottom: 18px;
   color: var(--color-accent);
-  text-shadow: 0 0 10px rgba(106, 130, 251, 0.55),
+  text-shadow:
+    0 0 10px rgba(106, 130, 251, 0.55),
     0 0 18px rgba(252, 92, 125, 0.45);
 }
 
 /* Hover */
 .card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 24px 55px rgba(0, 0, 0, 0.9), 0 0 22px rgba(106, 130, 251, 0.35);
+  box-shadow:
+    0 24px 55px rgba(0, 0, 0, 0.9),
+    0 0 22px rgba(106, 130, 251, 0.35);
   border-color: rgba(255, 255, 255, 0.18);
 }
 .card:hover .card-icon {
@@ -470,132 +501,7 @@ a {
   color: #fefefe;
 }
 
-/* =========================
-   Formulaire de contact
-   ========================= */
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-width: 620px;
-  margin: 0 auto;
-  background: rgba(3, 3, 10, 0.8);
-  border-radius: 18px;
-  padding: 24px 20px 26px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.85);
-}
-
-.contact-form button {
-  margin: auto;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  margin-bottom: 14px;
-  padding: 12px 14px;
-  border-radius: 10px;
-  border: 1px solid var(--color-input-border);
-  background: rgba(255, 255, 255, 0.02);
-  color: var(--color-text);
-  font-size: 0.96rem;
-  outline: none;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease,
-    background-color 0.3s ease;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: var(--color-input-focus);
-  box-shadow: 0 0 12px rgba(106, 130, 251, 0.6);
-  background: rgba(0, 0, 0, 0.4);
-}
-
-.contact-form textarea {
-  resize: vertical;
-  min-height: 140px;
-}
-
-.contact-form .g-recaptcha {
-  margin: 5px auto 10px;
-}
-
-/* Light = mêmes violets que portfolio */
-.theme-switch:checked ~ .page .contact-form {
-  background-color: #8b84c0;
-  border-color: rgba(255, 255, 255, 0.4);
-}
-
-.theme-switch:checked ~ .page .contact-form input,
-.theme-switch:checked ~ .page .contact-form textarea {
-  background-color: #9a94cc;
-  border-color: rgba(255, 255, 255, 0.45);
-  color: #fefefe;
-}
-
-/* Message retour */
-.form-message {
-  margin-top: 20px;
-  font-size: 1rem;
-  text-align: center;
-  color: var(--color-accent);
-  font-weight: 600;
-}
-
-/* =========================
-   Loader
-   ========================= */
-
-.loading-spinner {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(15, 23, 42, 0.8);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  z-index: 9999;
-  color: #e5e7eb;
-  font-size: 1rem;
-  text-align: center;
-}
-
-.circle-container {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-.circle {
-  width: 16px;
-  height: 16px;
-  border-radius: 999px;
-  background: var(--color-accent-gradient);
-  animation: bounce 0.6s infinite alternate;
-}
-
-.circle:nth-child(2) {
-  animation-delay: 0.15s;
-}
-.circle:nth-child(3) {
-  animation-delay: 0.3s;
-}
-
-@keyframes bounce {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(-16px);
-  }
-}
+/*  */
 
 /* =========================
    Footer
@@ -630,13 +536,17 @@ a {
 
 .footer-section p i {
   margin-right: 6px;
-  text-shadow: 0 0 10px rgba(106, 130, 251, 0.55),
+  text-shadow:
+    0 0 10px rgba(106, 130, 251, 0.55),
     0 0 18px rgba(252, 92, 125, 0.45);
-  transition: text-shadow 0.25s ease, transform 0.25s ease;
+  transition:
+    text-shadow 0.25s ease,
+    transform 0.25s ease;
 }
 
 .footer-section p i:hover {
-  text-shadow: 0 0 18px rgba(106, 130, 251, 0.9),
+  text-shadow:
+    0 0 18px rgba(106, 130, 251, 0.9),
     0 0 26px rgba(252, 92, 125, 0.8);
   transform: translateY(-1px);
 }
@@ -694,10 +604,15 @@ a {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 14px rgba(106, 130, 251, 0.55);
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.6),
+    0 0 14px rgba(106, 130, 251, 0.55);
   z-index: 20;
-  transition: transform 0.25s ease, box-shadow 0.25s ease,
-    background-position 0.25s ease, background-color 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background-position 0.25s ease,
+    background-color 0.25s ease;
 }
 
 .back-to-top:hover {
@@ -705,7 +620,9 @@ a {
   background-image: none;
   background-color: rgba(0, 0, 0, 0.85);
   color: var(--color-accent);
-  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.8), 0 0 22px rgba(252, 92, 125, 0.7);
+  box-shadow:
+    0 18px 35px rgba(0, 0, 0, 0.8),
+    0 0 22px rgba(252, 92, 125, 0.7);
 }
 
 /* =========================
