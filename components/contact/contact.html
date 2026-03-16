@@ -1,0 +1,86 @@
+<section class="contact-block section" id="contact">
+  <div class="contact-block__layout">
+    <div class="contact-block__intro">
+      <p class="contact-block__eyebrow">Une idée en tête ?</p>
+      <h2 class="contact-block__title">Parlons de votre projet</h2>
+      <p class="contact-block__subtitle">
+        Besoin d’un site vitrine, d’un portfolio ou d’une présence en ligne
+        claire et professionnelle ? Décrivez-moi votre besoin, je vous répondrai
+        rapidement.
+      </p>
+    </div>
+
+    <div class="contact-block__card">
+      <form class="contact-block__form" data-contact-form novalidate>
+        <input
+          type="text"
+          name="name"
+          placeholder="Votre nom"
+          autocomplete="name"
+          required
+        />
+
+        <input
+          type="email"
+          name="email"
+          placeholder="Votre email"
+          autocomplete="email"
+          required
+        />
+
+        <textarea
+          name="message"
+          placeholder="Votre message"
+          rows="6"
+          required
+        ></textarea>
+
+        <div
+          class="g-recaptcha contact-block__captcha"
+          data-sitekey="6LdjrA4rAAAAALCzaPx-8zlAnsViTq7YPaVziWG1"
+        ></div>
+
+        <button type="submit" class="btn-primary contact-block__submit">
+          Envoyer
+        </button>
+
+        <div class="contact-block__rgpd">
+          <span class="contact-block__rgpd-icon">ℹ️</span>
+          <span class="contact-block__rgpd-text">
+            Vos données sont utilisées uniquement pour répondre à votre demande.
+            <a href="/politique-confidentialite.html">
+              Politique de confidentialité
+            </a>
+          </span>
+
+          <div class="contact-block__rgpd-tooltip">
+            Les informations saisies dans ce formulaire (nom, email, message)
+            sont utilisées uniquement pour répondre à votre demande de contact.
+            Elles ne sont pas conservées à des fins commerciales. Ce formulaire
+            utilise EmailJS pour l’envoi des messages et Google reCAPTCHA pour
+            la protection contre les spams.
+          </div>
+        </div>
+      </form>
+
+      <p
+        class="contact-block__message"
+        data-contact-message
+        aria-live="polite"
+      ></p>
+    </div>
+  </div>
+</section>
+
+<div
+  class="loading-spinner contact-loader"
+  data-contact-loader
+  style="display: none"
+>
+  <div class="circle-container">
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+  </div>
+  <p>Envoi en cours, merci de patienter...</p>
+</div>
