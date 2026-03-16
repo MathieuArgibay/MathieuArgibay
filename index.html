@@ -8,7 +8,6 @@
 
     <!-- CSS de la page d'accueil -->
     <link rel="stylesheet" href="/css/accueil.css" />
-    <link rel="stylesheet" href="/components/footer/footer.css" />
 
     <!-- Fonts & Icônes -->
     <link
@@ -276,52 +275,10 @@
         </section>
 
         <!-- CONTACT -->
-        <section id="contact" class="section">
-          <div class="section-header">
-            <h2 class="section-title">Contactez-moi</h2>
-            <p class="section-subtitle">
-              Prêt à discuter de votre projet&nbsp;?<br />Expliquez-moi vos
-              besoins, je vous répondrai rapidement.
-            </p>
-          </div>
+      <div data-contact></div>
+      <script src="/assets/js/contact-form.js"></script>
+      <script src="/components/contact/contact.js"></script>
 
-          <form id="contact-form" class="contact-form">
-            <input type="text" name="name" placeholder="Votre nom" required />
-            <input
-              type="email"
-              name="email"
-              placeholder="Votre email"
-              required
-            />
-            <textarea
-              name="message"
-              placeholder="Votre message"
-              rows="6"
-              required
-            ></textarea>
-
-            <!-- reCAPTCHA -->
-            <div
-              class="g-recaptcha"
-              data-sitekey="6LdjrA4rAAAAALCzaPx-8zlAnsViTq7YPaVziWG1"
-            ></div>
-
-            <button type="submit" class="btn-primary">Envoyer</button>
-          </form>
-
-          <p id="form-message" class="form-message"></p>
-        </section>
-      </main>
-
-      <!-- Loader -->
-      <div id="loading-spinner" class="loading-spinner" style="display: none">
-        <div class="circle-container">
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-        </div>
-        <p>Envoi en cours, merci de patienter...</p>
-      </div>
 
       <div data-footer></div>
       <script src="/components/footer/footer.js"></script>

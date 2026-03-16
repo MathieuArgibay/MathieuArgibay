@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Mentions légales | Mathieu Argibay</title>
+
+    <meta
+      name="description"
+      content="Mentions légales du site de Mathieu Argibay, développeur web freelance."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/css/accueil.css" />
+    <link rel="stylesheet" href="/css/legal.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <input type="checkbox" id="theme-switch" class="theme-switch" />
+
+    <label for="theme-switch" class="theme-toggle">
+      <i class="fas fa-sun icon-sun"></i>
+      <i class="fas fa-moon icon-moon"></i>
+    </label>
+
+    <div class="page">
+      <main class="legal-page">
+        <div class="legal-shell">
+          <a href="/index.html" class="btn-ghost legal-back">
+            <i class="fas fa-arrow-left"></i>
+            Retour à l'accueil
+          </a>
+
+          <article class="legal-card">
+            <header class="legal-header">
+              <p class="legal-eyebrow">Informations légales</p>
+
+              <h1>Mentions légales</h1>
+
+              <p class="legal-intro">
+                Conformément aux dispositions de la loi pour la confiance dans
+                l'économie numérique (LCEN), les informations suivantes sont
+                communiquées aux utilisateurs du site.
+              </p>
+            </header>
+
+            <section>
+              <h2>1. Éditeur du site</h2>
+
+              <p>
+                <strong>Mathieu Argibay</strong><br />
+                Micro-entrepreneur
+              </p>
+
+              <p>
+                Email :
+                <a href="mailto:argibay.mathieu@gmail.com">
+                  argibay.mathieu@gmail.com
+                </a>
+              </p>
+
+              <p>Numéro SIRET : <strong>10231847400016</strong></p>
+
+              <p>Adresse : <strong>16450 Saint-Claud, France</strong></p>
+            </section>
+
+            <section>
+              <h2>2. Hébergement du site</h2>
+
+              <p>Le site est hébergé par :</p>
+
+              <p>
+                <strong>Nom de l’hébergeur :</strong> Vercel Inc.<br />
+                <strong>Adresse :</strong> 440 N Barranca Ave #4133, Covina, CA
+                91723, USA<br />
+                <strong>Site :</strong>
+                <a href="https://vercel.com">https://vercel.com</a><br />
+              </p>
+            </section>
+
+            <section>
+              <h2>3. Propriété intellectuelle</h2>
+
+              <p>
+                L’ensemble des contenus présents sur ce site (textes, images,
+                graphismes, logos, vidéos, icônes) est protégé par le droit
+                d’auteur et la législation relative à la propriété
+                intellectuelle.
+              </p>
+
+              <p>
+                Toute reproduction, représentation, modification ou adaptation,
+                totale ou partielle, de ces contenus, sans autorisation
+                préalable, est interdite.
+              </p>
+            </section>
+
+            <section>
+              <h2>4. Responsabilité</h2>
+
+              <p>
+                Les informations présentes sur ce site sont fournies à titre
+                informatif.
+              </p>
+
+              <p>
+                Malgré tout le soin apporté à leur exactitude, l’éditeur du site
+                ne saurait être tenu responsable des erreurs ou omissions, ni de
+                l’utilisation qui pourrait être faite de ces informations.
+              </p>
+            </section>
+
+            <section>
+              <h2>5. Données personnelles</h2>
+
+              <p>
+                Les informations collectées via le formulaire de contact sont
+                utilisées uniquement dans le cadre du traitement de votre
+                demande.
+              </p>
+
+              <p>
+                Pour plus d’informations concernant le traitement des données
+                personnelles, vous pouvez consulter la page :
+              </p>
+
+              <p>
+                <a href="/politique-confidentialite.html">
+                  Politique de confidentialité
+                </a>
+              </p>
+            </section>
+
+            <section>
+              <h2>6. Liens externes</h2>
+
+              <p>Le site peut contenir des liens vers d’autres sites.</p>
+
+              <p>
+                L’éditeur du site ne peut être tenu responsable du contenu ou
+                des pratiques de ces sites tiers.
+              </p>
+            </section>
+
+            <section>
+              <h2>7. Droit applicable</h2>
+
+              <p>Le présent site est soumis au droit français.</p>
+
+              <p>
+                En cas de litige, et à défaut de résolution amiable, les
+                tribunaux français seront seuls compétents.
+              </p>
+            </section>
+          </article>
+        </div>
+      </main>
+
+      <div data-footer></div>
+      <script src="/components/footer/footer.js"></script>
+
+      <button id="back-to-top" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+      </button>
+    </div>
+
+    <script>
+      const backToTopButton = document.getElementById("back-to-top");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+          backToTopButton.style.display = "flex";
+        } else {
+          backToTopButton.style.display = "none";
+        }
+      });
+
+      backToTopButton.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+    </script>
+  </body>
+</html>
