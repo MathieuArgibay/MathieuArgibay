@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
@@ -352,62 +352,12 @@
           </div>
         </article>
       </section>
-
-      <!-- SECTION CONTACT : même logique que portfolio2 -->
-      <section id="contact" class="video-contact section contact">
-        <div class="video-contact-header">
-          <p class="video-contact-label">Contact</p>
-          <h2 class="video-contact-title">
-            Parlons de ton projet <span>vidéo</span>
-          </h2>
-          <p class="video-contact-text">
-            Tu as une idée de contenu, un besoin de montage ou un projet client
-            ? Envoie-moi un message et on voit ensemble comment le mettre en
-            images.
-          </p>
-        </div>
-
-        <div class="video-contact-form-wrapper">
-          <h3>Contactez-moi</h3>
-          <form id="contact-form">
-            <input type="text" name="name" placeholder="Votre nom" required />
-            <input
-              type="email"
-              name="email"
-              placeholder="Votre email"
-              required
-            />
-            <textarea
-              name="message"
-              placeholder="Votre message"
-              rows="6"
-              required
-            ></textarea>
-
-            <!-- reCAPTCHA identique -->
-            <div
-              class="g-recaptcha"
-              data-sitekey="6LdjrA4rAAAAALCzaPx-8zlAnsViTq7YPaVziWG1"
-            ></div>
-
-            <button type="submit" class="video-btn video-btn--primary">
-              Envoyer
-            </button>
-          </form>
-          <p id="form-message"></p>
-        </div>
-      </section>
     </main>
 
-    <!-- Loader comme sur portfolio2 -->
-    <div id="loading-spinner" class="loading-spinner" style="display: none">
-      <div class="circle-container">
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-      </div>
-      <p>Envoi en cours, merci de patienter...</p>
-    </div>
+    <!-- CONTACT -->
+    <div data-contact></div>
+    <script src="/assets/js/contact-form.js"></script>
+    <script src="/components/contact/contact.js"></script>
 
     <div data-footer></div>
 

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
@@ -436,47 +436,12 @@
             <div class="modal-caption">Log Analyser</div>
           </div>
         </div>
-
-        <!-- Contact -->
-        <section id="contact" class="section contact">
-          <h3>Contactez-moi</h3>
-          <form id="contact-form">
-            <input type="text" name="name" placeholder="Votre nom" required />
-            <input
-              type="email"
-              name="email"
-              placeholder="Votre email"
-              required
-            />
-            <textarea
-              name="message"
-              placeholder="Votre message"
-              rows="6"
-              required
-            ></textarea>
-
-            <!-- reCAPTCHA -->
-            <div
-              class="g-recaptcha"
-              data-sitekey="6LdjrA4rAAAAALCzaPx-8zlAnsViTq7YPaVziWG1"
-            ></div>
-
-            <button type="submit">Envoyer</button>
-          </form>
-
-          <p id="form-message"></p>
-        </section>
       </main>
 
-      <!-- Loader -->
-      <div id="loading-spinner" class="loading-spinner" style="display: none">
-        <div class="circle-container">
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-        </div>
-        <p>Envoi en cours, merci de patienter...</p>
-      </div>
+      <!-- CONTACT -->
+      <div data-contact></div>
+      <script src="/assets/js/contact-form.js"></script>
+      <script src="/components/contact/contact.js"></script>
 
       <!-- Footer -->
       <div data-footer></div>
